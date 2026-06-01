@@ -95,8 +95,9 @@ python launch_mujoco_orca.py --list-tasks     # print all task names
 > - **Apple Vision Pro** — [VisionProTeleop](https://github.com/Improbable-AI/VisionProTeleop) provides full 6-DoF wrist pose and high-quality hand landmarks via ARKit.
 > - **Motion capture gloves** — e.g. Rokoko, StretchSense, or similar.
 
-Run from anywhere — all paths are resolved relative to the script:
 
+- Run from anywhere — all paths are resolved relative to the script:
+- Currently can just move the fingers, the hand is fixed in space. The hand base is implemented as a mocap body. Read here for more [mocap mujoco docs](https://mujoco.readthedocs.io/en/stable/modeling.html#mocap-bodies)
 ```bash
 # Bare hand (no task object)
 python teleop/webcam_teleop.py
@@ -108,40 +109,28 @@ python teleop/webcam_teleop.py --task H2_Chopsticks
 # All options
 python teleop/webcam_teleop.py --help
 ```
-
-### Moving the hand in the scene
-
-Hold **Ctrl** and **click-drag** the hand in the MuJoCo viewer to reposition it. This moves the mocap anchor that the wrist is welded to.
-
-### Tips
-
-- Show your **right hand** to the camera, palm facing forward.
-- The first few seconds may be slower while PyTorch JIT compiles — this is normal.
-- Adjust `--opt-steps` (default 2) to trade retargeting quality for speed.
-- Close the MuJoCo window to quit.
-
 ---
 
 ## PoMDAR Tasks
 
-All 17 benchmark tasks. Pass any `ID` to `--task`.
+All 18 benchmark tasks. Tasks H4 and H5 uses the same objects, so there are 17 files in total. Pass any `ID` to `--task`.
 
-| ID | Full name | Category | Object |
-|----|-----------|----------|--------|
-| `V1_Wheel` | In-Hand Wheel | V — In-Hand | Steering wheel |
-| `V2_Stick` | In-Hand Stick | V — In-Hand | Cylindrical stick |
-| `V3_Sphere` | In-Hand Sphere | V — In-Hand | Sphere |
-| `C1_Thread` | Constrained Thread | C — Constrained | Threaded bolt |
-| `C2_Stick` | Constrained Stick | C — Constrained | Constrained rod |
-| `C3_Wheel` | Constrained Wheel | C — Constrained | Wheel on axle |
-| `C4_Fidget` | Fidget Spinner | C — Constrained | Fidget spinner |
-| `H1_Scissors` | Scissors | H — Human-Tool | Scissors |
-| `H2_Chopsticks` | Chopsticks | H — Human-Tool | Chopsticks |
-| `H3_Squeeze` | Squeeze | H — Human-Tool | Squeeze toy |
-| `H4_Palmar_H5_Pinch` | Palmar / Pinch | H — Human-Tool | Dual-grasp object |
-| `G1_Wheel` | Grasp Wheel | G — Grasping | Wheel |
-| `G2_Sphere` | Grasp Sphere | G — Grasping | Sphere |
-| `G3_Disk` | Grasp Disk | G — Grasping | Flat disk |
-| `G4_Cylinder_Small` | Grasp Small Cylinder | G — Grasping | Small cylinder |
-| `G5_Cylinder` | Grasp Cylinder | G — Grasping | Medium cylinder |
-| `G6_Cylinder_Large` | Grasp Large Cylinder | G — Grasping | Large cylinder |
+| ID | Category |
+|----|----------|
+| `V1_Wheel` | V — Vertical |
+| `V2_Stick` | V — Vertical |
+| `V3_Sphere` | V — Vertical |
+| `C1_Thread` | C — Continuous |
+| `C2_Stick` | C — Continuous |
+| `C3_Wheel` | C — Continuous |
+| `C4_Fidget` | C — Continuous |
+| `H1_Scissors` | H — Horizontal |
+| `H2_Chopsticks` | H — Horizontal |
+| `H3_Squeeze` | H — Horizontal |
+| `H4_Palmar_H5_Pinch` | H — Horizontal |
+| `G1_Wheel` | G — Grasping |
+| `G2_Sphere` | G — Grasping |
+| `G3_Disk` | G — Grasping |
+| `G4_Cylinder_Small` | G — Grasping |
+| `G5_Cylinder` | G — Grasping |
+| `G6_Cylinder_Large` | G — Grasping |
