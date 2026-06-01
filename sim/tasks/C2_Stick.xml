@@ -1,0 +1,46 @@
+<mujoco model="C2_Stick">
+
+  <asset>
+    <material name="object_material" rgba="1 1 1 1" shininess="0.3"/>
+
+    <mesh name="angle_plate" file="angle_plate.stl" scale="1 1 1"/>
+    <mesh name="clutch_rod" file="clutch_rod.stl" scale="1 1 1"/>
+    <mesh name="clutch_rotor" file="clutch_rotor.stl" scale="1 1 1"/>
+    <mesh name="contact_cylinder" file="contact_cylinder.stl" scale="1 1 1"/>
+  </asset>
+
+  <default>
+    <default class="visual">
+      <geom contype="0" conaffinity="0" group="2"/>
+    </default>
+    <default class="collision">
+      <geom group="3"/>
+    </default>
+  </default>
+
+  <worldbody>
+
+    <body name="conti_rot_base" pos="0 0 0">
+      <geom name="angle_plate" type="mesh" mesh="angle_plate" material="object_material" class="visual"/>
+      <geom type="cylinder" size="0.06075 0.002" pos="0 0 0.002" density="248" class="collision"/>
+      <geom type="cylinder" size="0.0308 0.0315" pos="0 0 0.0355" density="248"/>
+    </body>
+
+    <body name="pen_rod" pos="0 0 0.067"> 
+      <joint name="pen_rod_slide_joint" type="slide" pos="0 0 0" axis="0 0 1" range="-0.01 0.045" damping="100"/>
+      <joint name="pen_rod_hinge_joint" type="hinge" axis="0 0 1"/>
+      <geom type="cylinder" size="0.0035 0.080" quat="0.7071068 0 0.7071068 0" pos="0 0 0.08425" material="object_material" mass="0.05"/>
+      <geom type="cylinder" size="0.0035 0.00775" pos="0 0 0.0765" material="object_material" density="248"/>
+      <geom name="clutch_rod" type="mesh" mesh="clutch_rod" material="object_material" class="visual"/>
+      <geom name="contact_cylinder" type="mesh" mesh="contact_cylinder" pos="0 0 0" class="collision" mass="0.05"/>
+    </body>
+
+    <body name="clutch_rotor" pos="0 0 0.004">
+      <joint name="clutch_rotor_slide_joint" type="slide" pos="0 0 0" axis="0 0 1" range="0 0.030" damping="1"/>
+      <joint name="clutch_rotor_hinge_joint" type="hinge" axis="0 0 1"/>
+      <geom name="clutch_rotor" type="mesh" mesh="clutch_rotor" material="object_material" class="visual"/>
+      <geom type="cylinder" size="0.035 0.002" pos="0 0 0.098" mass="0.3" class="collision"/>
+    </body>
+    
+  </worldbody>
+</mujoco>

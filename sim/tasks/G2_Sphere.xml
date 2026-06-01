@@ -1,0 +1,173 @@
+<mujoco model="G2_Sphere">
+
+  <asset>
+    <material name="object_material" rgba="1 1 1 1" shininess="0.3"/>
+
+    <mesh name="g9101112_base_plate_visual" file="g9101112_base_plate_visual.stl" scale="1 1 1"/>
+    <mesh name="g_plate_collision_part1" file="g_plate_collision_part1.stl" scale="1 1 1"/>
+    <mesh name="g_plate_collision_part2" file="g_plate_collision_part2.stl" scale="1 1 1"/>
+    <mesh name="g_plate_collision_part3" file="g_plate_collision_part3.stl" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part0" file="g910_pick_holder_collision/part_0.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part1" file="g910_pick_holder_collision/part_1.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part2" file="g910_pick_holder_collision/part_2.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part3" file="g910_pick_holder_collision/part_3.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part4" file="g910_pick_holder_collision/part_4.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part5" file="g910_pick_holder_collision/part_5.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part6" file="g910_pick_holder_collision/part_6.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part7" file="g910_pick_holder_collision/part_7.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part8" file="g910_pick_holder_collision/part_8.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part9" file="g910_pick_holder_collision/part_9.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part10" file="g910_pick_holder_collision/part_10.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part11" file="g910_pick_holder_collision/part_11.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part12" file="g910_pick_holder_collision/part_12.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part13" file="g910_pick_holder_collision/part_13.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part14" file="g910_pick_holder_collision/part_14.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part15" file="g910_pick_holder_collision/part_15.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part16" file="g910_pick_holder_collision/part_16.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part17" file="g910_pick_holder_collision/part_17.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part18" file="g910_pick_holder_collision/part_18.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part19" file="g910_pick_holder_collision/part_19.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part20" file="g910_pick_holder_collision/part_20.obj" scale="1 1 1"/>
+    <mesh name="g910_pick_holder_collision_part21" file="g910_pick_holder_collision/part_21.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part0" file="g910_bracket_collision/part_0.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part1" file="g910_bracket_collision/part_1.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part2" file="g910_bracket_collision/part_2.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part3" file="g910_bracket_collision/part_3.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part4" file="g910_bracket_collision/part_4.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part5" file="g910_bracket_collision/part_5.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part6" file="g910_bracket_collision/part_6.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part7" file="g910_bracket_collision/part_7.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part8" file="g910_bracket_collision/part_8.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part9" file="g910_bracket_collision/part_9.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part10" file="g910_bracket_collision/part_10.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part11" file="g910_bracket_collision/part_11.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part12" file="g910_bracket_collision/part_12.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part13" file="g910_bracket_collision/part_13.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part14" file="g910_bracket_collision/part_14.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part15" file="g910_bracket_collision/part_15.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part16" file="g910_bracket_collision/part_16.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part17" file="g910_bracket_collision/part_17.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part18" file="g910_bracket_collision/part_18.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part19" file="g910_bracket_collision/part_19.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part20" file="g910_bracket_collision/part_20.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part21" file="g910_bracket_collision/part_21.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part22" file="g910_bracket_collision/part_22.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part23" file="g910_bracket_collision/part_23.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part24" file="g910_bracket_collision/part_24.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part25" file="g910_bracket_collision/part_25.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part26" file="g910_bracket_collision/part_26.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part27" file="g910_bracket_collision/part_27.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part28" file="g910_bracket_collision/part_28.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part29" file="g910_bracket_collision/part_29.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part30" file="g910_bracket_collision/part_30.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part31" file="g910_bracket_collision/part_31.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part32" file="g910_bracket_collision/part_32.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part33" file="g910_bracket_collision/part_33.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part34" file="g910_bracket_collision/part_34.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part35" file="g910_bracket_collision/part_35.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part36" file="g910_bracket_collision/part_36.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part37" file="g910_bracket_collision/part_37.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part38" file="g910_bracket_collision/part_38.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part39" file="g910_bracket_collision/part_39.obj" scale="1 1 1"/>
+    <mesh name="g910_bracket_collision_part40" file="g910_bracket_collision/part_40.obj" scale="1 1 1"/>
+
+
+    <mesh name="g10_sphere_visual" file="g10_sphere_visual.stl" scale="1 1 1"/>
+    <mesh name="g10_sphere_collision_part1" file="g10_sphere_collision_part1.stl" scale="1 1 1"/>
+    <mesh name="g910_interface_collision_part1" file="g910_interface_collision_part1.stl" scale="1 1 1"/>
+    <mesh name="g910_interface_collision_part2" file="g910_interface_collision_part2.stl" scale="1 1 1"/>
+  </asset>
+
+  <default>
+    <default class="visual">
+      <geom contype="0" conaffinity="0" group="2"/>
+    </default>
+    <default class="collision">
+      <geom group="3" solimp="0.5 0.99 0.0001" solref="0.005 1"/>
+    </default>
+  </default>
+
+  <worldbody>
+    <body name="base_plate" pos="0 0 0">
+      <geom name="g9101112_base_plate_visual" type="mesh" mesh="g9101112_base_plate_visual" rgba="0.3 0.3 0.3 1" mass="0" class="visual"/>
+      <geom name="g_plate_collision_part1" type="mesh" mesh="g_plate_collision_part1" class="collision" density="248"/>
+      <geom name="g_plate_collision_part2" type="mesh" mesh="g_plate_collision_part2" class="collision" density="248"/>
+      <!-- <geom name="g_plate_collision_part3" type="mesh" mesh="g_plate_collision_part3" class="collision" density="248"/> -->
+      <geom size="0.1265 0.1063 0.007"  pos="0 0 0.007" type="box" density="248" class="collision"/>
+
+      <geom name="g910_pick_holder_collision_part0" type="mesh" mesh="g910_pick_holder_collision_part0" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part1" type="mesh" mesh="g910_pick_holder_collision_part1" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part2" type="mesh" mesh="g910_pick_holder_collision_part2" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part3" type="mesh" mesh="g910_pick_holder_collision_part3" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part4" type="mesh" mesh="g910_pick_holder_collision_part4" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part5" type="mesh" mesh="g910_pick_holder_collision_part5" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part6" type="mesh" mesh="g910_pick_holder_collision_part6" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part7" type="mesh" mesh="g910_pick_holder_collision_part7" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part8" type="mesh" mesh="g910_pick_holder_collision_part8" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part9" type="mesh" mesh="g910_pick_holder_collision_part9" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part10" type="mesh" mesh="g910_pick_holder_collision_part10" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part11" type="mesh" mesh="g910_pick_holder_collision_part11" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part12" type="mesh" mesh="g910_pick_holder_collision_part12" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part13" type="mesh" mesh="g910_pick_holder_collision_part13" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part14" type="mesh" mesh="g910_pick_holder_collision_part14" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part15" type="mesh" mesh="g910_pick_holder_collision_part15" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part16" type="mesh" mesh="g910_pick_holder_collision_part16" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part17" type="mesh" mesh="g910_pick_holder_collision_part17" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part18" type="mesh" mesh="g910_pick_holder_collision_part18" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part19" type="mesh" mesh="g910_pick_holder_collision_part19" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part20" type="mesh" mesh="g910_pick_holder_collision_part20" class="collision" density="248"/>
+      <geom name="g910_pick_holder_collision_part21" type="mesh" mesh="g910_pick_holder_collision_part21" class="collision" density="248"/>
+
+      <geom name="g910_bracket_collision_part0" type="mesh" mesh="g910_bracket_collision_part0" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part1" type="mesh" mesh="g910_bracket_collision_part1" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part2" type="mesh" mesh="g910_bracket_collision_part2" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part3" type="mesh" mesh="g910_bracket_collision_part3" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part4" type="mesh" mesh="g910_bracket_collision_part4" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part5" type="mesh" mesh="g910_bracket_collision_part5" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part6" type="mesh" mesh="g910_bracket_collision_part6" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part7" type="mesh" mesh="g910_bracket_collision_part7" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part8" type="mesh" mesh="g910_bracket_collision_part8" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part9" type="mesh" mesh="g910_bracket_collision_part9" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part10" type="mesh" mesh="g910_bracket_collision_part10" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part11" type="mesh" mesh="g910_bracket_collision_part11" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part12" type="mesh" mesh="g910_bracket_collision_part12" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part13" type="mesh" mesh="g910_bracket_collision_part13" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part14" type="mesh" mesh="g910_bracket_collision_part14" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part15" type="mesh" mesh="g910_bracket_collision_part15" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part16" type="mesh" mesh="g910_bracket_collision_part16" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part17" type="mesh" mesh="g910_bracket_collision_part17" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part18" type="mesh" mesh="g910_bracket_collision_part18" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part19" type="mesh" mesh="g910_bracket_collision_part19" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part20" type="mesh" mesh="g910_bracket_collision_part20" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part21" type="mesh" mesh="g910_bracket_collision_part21" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part22" type="mesh" mesh="g910_bracket_collision_part22" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part23" type="mesh" mesh="g910_bracket_collision_part23" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part24" type="mesh" mesh="g910_bracket_collision_part24" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part25" type="mesh" mesh="g910_bracket_collision_part25" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part26" type="mesh" mesh="g910_bracket_collision_part26" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part27" type="mesh" mesh="g910_bracket_collision_part27" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part28" type="mesh" mesh="g910_bracket_collision_part28" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part29" type="mesh" mesh="g910_bracket_collision_part29" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part30" type="mesh" mesh="g910_bracket_collision_part30" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part31" type="mesh" mesh="g910_bracket_collision_part31" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part32" type="mesh" mesh="g910_bracket_collision_part32" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part33" type="mesh" mesh="g910_bracket_collision_part33" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part34" type="mesh" mesh="g910_bracket_collision_part34" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part35" type="mesh" mesh="g910_bracket_collision_part35" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part36" type="mesh" mesh="g910_bracket_collision_part36" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part37" type="mesh" mesh="g910_bracket_collision_part37" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part38" type="mesh" mesh="g910_bracket_collision_part38" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part39" type="mesh" mesh="g910_bracket_collision_part39" class="collision" density="248"/>
+      <geom name="g910_bracket_collision_part40" type="mesh" mesh="g910_bracket_collision_part40" class="collision" density="248"/>
+    </body>
+
+    <body name="g10_sphere" pos="0 0 0">
+      <joint name="g10_free_joint" type="free"/>
+      <geom name="g10_sphere_visual" type="mesh" mesh="g10_sphere_visual" material="object_material" mass="0" class="visual"/>
+      <geom name="g10_sphere_collision_part1" type="mesh" mesh="g10_sphere_collision_part1" class="collision" density="248" friction="0.8 0.1 0.01"/>
+      <geom name="g910_interface_collision_part1" type="mesh" mesh="g910_interface_collision_part1" class="collision" density="248"/>
+      <geom name="g910_interface_collision_part2" type="mesh" mesh="g910_interface_collision_part2" class="collision" density="248"/>
+    </body>
+    
+  </worldbody>
+</mujoco>

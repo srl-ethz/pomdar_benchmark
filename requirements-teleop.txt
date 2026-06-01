@@ -1,0 +1,8 @@
+mujoco
+mediapipe>=0.10
+opencv-python
+numpy
+torch
+pytorch_kinematics
+scipy
+pyyaml

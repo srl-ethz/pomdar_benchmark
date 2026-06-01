@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<mujoco model="orcahand">
+  
+  <default>
+    <geom conaffinity="1" condim="3" contype="1" friction="1 0.005 0.001" margin="0.0005" rgba="1 1 1 1" type="mesh" />
+    <joint armature="0.001" damping="0.1" frictionloss="0.001" limited="true" margin="0.01" type="hinge" />
+    <position ctrllimited="true" forcelimited="true" forcerange="-1 1" kp="2.0" />
+    <mesh scale="0.001 0.001 0.001" />
+  </default>
+  <asset>
+    <mesh file="orcahand_v1b/tower.stl" name="tower_mesh" />
+    <mesh file="orcahand_v1b/palm.stl" name="palm_mesh" />
+    <mesh file="orcahand_v1b/thumb_mp.stl" name="thumb_mp_mesh" />
+    <mesh file="orcahand_v1b/thumb_pp.stl" name="thumb_pp_mesh" />
+    <mesh file="orcahand_v1b/thumb_ip.stl" name="thumb_ip_mesh" />
+    <mesh file="orcahand_v1b/thumb_dp.stl" name="thumb_dp_mesh" />
+    <mesh file="orcahand_v1b/index_mp.stl" name="index_mp_mesh" />
+    <mesh file="orcahand_v1b/index_pp.stl" name="index_pp_mesh" />
+    <mesh file="orcahand_v1b/index_ip.stl" name="index_ip_mesh" />
+    <mesh file="orcahand_v1b/middle_mp.stl" name="middle_mp_mesh" />
+    <mesh file="orcahand_v1b/middle_pp.stl" name="middle_pp_mesh" />
+    <mesh file="orcahand_v1b/middle_ip.stl" name="middle_ip_mesh" />
+    <mesh file="orcahand_v1b/ring_mp.stl" name="ring_mp_mesh" />
+    <mesh file="orcahand_v1b/ring_pp.stl" name="ring_pp_mesh" />
+    <mesh file="orcahand_v1b/ring_ip.stl" name="ring_ip_mesh" />
+    <mesh file="orcahand_v1b/pinky_mp.stl" name="pinky_mp_mesh" />
+    <mesh file="orcahand_v1b/pinky_pp.stl" name="pinky_pp_mesh" />
+    <mesh file="orcahand_v1b/pinky_ip.stl" name="pinky_ip_mesh" />
+  </asset>
+  
+  
+  
+  <worldbody>
+    
+    
+    
+    <body name="root" pos="0.3 0 0.3" quat="0.7071 -0.7071 0 0">
+      <body euler="0.0 0.0 0.0" name="tower" pos="0.0 0.0 0.0">
+        <geom mesh="tower_mesh" />
+        <body euler="1.1102230246251556e-16 -8.881784197001252e-16 1.7201530872733918e-17" name="palm" pos="0.03862890845062729 0.0014412498723577905 0.14359038811689065">
+          <geom mesh="palm_mesh" />
+          <joint axis="1.0000000000000009 1.7708749843666826e-16 -6.445457829160986e-17" name="joint_palm" pos="0.0019999999999999844 -0.0014412498723577962 -0.038719313535195574" range="-0.5235987755982988 1.0471975511965976" />
+          
+          
+          
+          <body euler="0.5385748168211226 -0.055949236938648284 -1.2704659007702708" name="thumb_mp" pos="-0.028209038238965978 0.01777053753934476 -0.013209503444777428">
+            <geom mesh="thumb_mp_mesh" />
+            
+            <joint axis="0.0 0.0 -1.0" name="joint_abd_thumb" pos="0.0 0.0 0.0" range="-0.9599310885968813 0.7853981633974483" />
+            <body euler="-1.221730476396032 -6.661338147750939e-16 -9.992007221626409e-16" name="thumb_pp" pos="-0.030000000000000044 1.8561541192951836e-16 2.688821387764051e-17">
+              <geom mesh="thumb_pp_mesh" />
+              <joint axis="0.0 0.342 0.939" name="joint_pip_thumb" pos="0.03 0.0 0.0" range="-0.3490658503988659 0.7330382858376184" />
+              <body euler="3.1415926535897927 1.5707963267948948 0.0" name="thumb_ip" pos="-2.5364699896779245e-16 5.2599154258198517e-17 -1.0558595790610728e-17">
+                <geom mesh="thumb_ip_mesh" />
+                
+                <joint axis="0.0 -1.0 0.0" name="joint_iip_thumb" pos="0.0 0.0 0.0" range="-0.3490658503988659 2.0943951023931953" />
+                <body euler="2.4424906541753483e-15 2.220446049250313e-15 1.4988010832439653e-15" name="thumb_dp" pos="0.0004999999999720094 -6.765421556309548e-16 0.03299999999999984">
+                  <geom mesh="thumb_dp_mesh" />
+                  
+                  <joint axis="0.0 -1.0 0.0" name="joint_dip_thumb" pos="0.0 0.0 0.0" range="-0.3490658503988659 2.6179938779914944" />
+                </body>
+              </body>
+            </body>
+          </body>
+          
+          
+          
+          <body euler="1.6066965884733264 1.1355216005349669 -0.053392057607510535" name="index_mp" pos="-0.03251295801685978 0.0023543337151310005 0.0432957640141495">
+            <geom mesh="index_mp_mesh" />
+            <joint axis="8.326672684688674e-17 1.1102230246251565e-16 -1.0" name="joint_abd_index" pos="0.01999999999999969 1.222980050563649e-16 2.6020852139652106e-18" range="-0.5235987755982988 0.5235987755982988" />
+            <body euler="7.850462293418878e-17 -1.5707963267948963 0.0" name="index_pp" pos="8.137509671899347e-17 -2.244690516075169e-17 1.3651332450112946e-18">
+              <geom mesh="index_pp_mesh" />
+              <joint axis="2.7755575615628914e-16 -1.0000000000000013 3.3306690738754696e-16" name="joint_pip_index" pos="7.643495558336816e-18 2.0383250328514768e-17 -9.34495075168305e-18" range="-0.3490658503988659 1.9198621771937625" />
+              <body euler="0.0 0.0 -1.1102230246251565e-16" name="index_ip" pos="0.0004999999999839755 3.469446951953614e-17 0.03799999999999995">
+                <geom mesh="index_ip_mesh" />
+                <joint axis="1.1102230246251565e-16 -0.9999999999999994 3.191891195797325e-16" name="joint_iip_index" pos="-5.782630065573341e-18 2.2295439723773536e-17 2.0152132784981046e-17" range="-0.3490658503988659 2.2689280275926285" />
+              </body>
+            </body>
+          </body>
+          
+          
+          
+          <body euler="-1.535972433424013 1.3083608795701238 -3.0544118070011477" name="middle_mp" pos="0.0266852242737668 0.001991745703339339 0.040137157347936075">
+            <geom mesh="middle_mp_mesh" />
+            <joint axis="5.828670879282072e-16 -2.220446049250313e-16 -0.9999999999999996" name="joint_abd_middle" pos="0.019999999999999712 -8.239936510889834e-17 6.071532165918825e-18" range="-0.5235987755982988 0.5235987755982988" />
+            <body euler="0.0 -1.5707963267948963 0.0" name="middle_pp" pos="-1.5573252164408336e-16 4.473909167825336e-17 -2.5177719415862324e-18">
+              <geom mesh="middle_pp_mesh" />
+              <joint axis="-3.3306690738754696e-16 -1.0000000000000007 8.743006318923108e-16" name="joint_pip_middle" pos="-6.29584589194853e-18 1.1842556896340075e-17 1.1819659490533676e-16" range="-0.3490658503988659 1.9198621771937625" />
+              <body euler="-6.938893903907228e-17 0.0 -1.1102230246251565e-16" name="middle_ip" pos="0.0004999999999727497 -2.8189256484623115e-17 0.0459999999999999">
+                <geom mesh="middle_ip_mesh" />
+                <joint axis="-2.220446049250313e-16 -1.0000000000000004 9.298117831235686e-16" name="joint_iip_middle" pos="-1.95471717076309e-17 5.465579791165633e-17 1.4856164371462412e-17" range="-0.3490658503988659 2.2689280275926285" />
+              </body>
+            </body>
+          </body>
+          
+          
+          
+          <body euler="1.5707963267948972 1.5707963267948961 0.0" name="ring_mp" pos="-3.632896633769095e-17 2.1597307275911213e-17 0.04999999999999971">
+            <geom mesh="ring_mp_mesh" />
+            <joint axis="4.440892098500626e-16 -4.440892098500626e-16 -0.9999999999999987" name="joint_abd_ring" pos="0.019999999999999882 -4.336808689942018e-18 9.540979117872439e-18" range="-0.5235987755982988 0.5235987755982988" />
+            <body euler="0.0 -1.5707963267948963 0.0" name="ring_pp" pos="0.0 0.0 0.0">
+              <geom mesh="ring_pp_mesh" />
+              <joint axis="6.106226635438361e-16 -0.9999999999999997 -1.035742568734697e-16" name="joint_pip_ring" pos="1.301042606982604e-18 5.7777898331617076e-34 7.149650149773824e-34" range="-0.3490658503988659 1.9198621771937625" />
+              <body euler="0.0 0.0 0.0" name="ring_ip" pos="0.0004999999999727603 -2.0057740190981832e-18 0.04600000000000005">
+                <geom mesh="ring_ip_mesh" />
+                <joint axis="6.106226635438361e-16 -0.9999999999999997 -1.035742568734697e-16" name="joint_iip_ring" pos="-2.1792463666958658e-17 -6.938893903907171e-18 8.326672684688664e-17" range="-0.3490658503988659 2.2689280275926285" />
+              </body>
+            </body>
+          </body>
+          
+          
+          
+          <body euler="-1.4969430651841686 0.8614853700810632 -2.8837300965971076" name="pinky_mp" pos="0.05518322176606877 0.008313798880845123 0.022423955548036986">
+            <geom mesh="pinky_mp_mesh" />
+            <joint axis="-4.996003610813204e-16 -2.7755575615628914e-16 -0.9999999999999987" name="joint_abd_pinky" pos="0.02000000000000019 -2.47198095326695e-17 -6.158268339717665e-17" range="-0.5235987755982988 0.5235987755982988" />
+            <body euler="3.140184917367551e-16 -1.5707963267948961 0.0" name="pinky_pp" pos="1.4129441697641686e-16 6.242012395981345e-18 5.1571730793201596e-18">
+              <geom mesh="pinky_pp_mesh" />
+              <joint axis="1.6653345369377348e-16 -0.9999999999999994 -1.1102230246251565e-16" name="joint_pip_pinky" pos="-7.273901839467707e-19 -3.5634470632665727e-17 4.269871636738011e-17" range="-0.3490658503988659 1.9198621771937625" />
+              <body euler="-1.665334536937734e-16 -6.661338147750939e-16 1.1102230246251563e-16" name="pinky_ip" pos="0.0004999999999844981 2.949029909160572e-17 0.03300000000000021">
+                <geom mesh="pinky_ip_mesh" />
+                <joint axis="3.885780586188048e-16 -0.9999999999999989 4.718447854656915e-16" name="joint_iip_pinky" pos="-1.8619324129843582e-17 -3.362886335731112e-17 -6.41845325535561e-17" range="-0.3490658503988659 2.2689280275926285" />
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <position ctrlrange="-0.5235987755982988 1.0471975511965976" joint="joint_palm" name="joint_palm_actuator" />
+    <position ctrlrange="-0.9599310885968813 0.7853981633974483" joint="joint_abd_thumb" name="joint_abd_thumb_actuator" />
+    <position ctrlrange="-0.3490658503988659 0.7330382858376184" joint="joint_pip_thumb" name="joint_pip_thumb_actuator" />
+    <position ctrlrange="-0.3490658503988659 2.0943951023931953" joint="joint_iip_thumb" name="joint_iip_thumb_actuator" />
+    <position ctrlrange="-0.3490658503988659 2.6179938779914944" joint="joint_dip_thumb" name="joint_dip_thumb_actuator" />
+    <position ctrlrange="-0.5235987755982988 0.5235987755982988" joint="joint_abd_index" name="joint_abd_index_actuator" />
+    <position ctrlrange="-0.3490658503988659 1.9198621771937625" joint="joint_pip_index" name="joint_pip_index_actuator" />
+    <position ctrlrange="-0.3490658503988659 2.2689280275926285" joint="joint_iip_index" name="joint_iip_index_actuator" />
+    <position ctrlrange="-0.5235987755982988 0.5235987755982988" joint="joint_abd_middle" name="joint_abd_middle_actuator" />
+    <position ctrlrange="-0.3490658503988659 1.9198621771937625" joint="joint_pip_middle" name="joint_pip_middle_actuator" />
+    <position ctrlrange="-0.3490658503988659 2.2689280275926285" joint="joint_iip_middle" name="joint_iip_middle_actuator" />
+    <position ctrlrange="-0.5235987755982988 0.5235987755982988" joint="joint_abd_ring" name="joint_abd_ring_actuator" />
+    <position ctrlrange="-0.3490658503988659 1.9198621771937625" joint="joint_pip_ring" name="joint_pip_ring_actuator" />
+    <position ctrlrange="-0.3490658503988659 2.2689280275926285" joint="joint_iip_ring" name="joint_iip_ring_actuator" />
+    <position ctrlrange="-0.5235987755982988 0.5235987755982988" joint="joint_abd_pinky" name="joint_abd_pinky_actuator" />
+    <position ctrlrange="-0.3490658503988659 1.9198621771937625" joint="joint_pip_pinky" name="joint_pip_pinky_actuator" />
+    <position ctrlrange="-0.3490658503988659 2.2689280275926285" joint="joint_iip_pinky" name="joint_iip_pinky_actuator" />
+  </actuator>
+  <contact>
+    <exclude body1="root" body2="tower" />
+    <exclude body1="tower" body2="palm" />
+    <exclude body1="palm" body2="thumb_mp" />
+    <exclude body1="thumb_mp" body2="thumb_pp" />
+    <exclude body1="thumb_pp" body2="thumb_ip" />
+    <exclude body1="thumb_ip" body2="thumb_dp" />
+    <exclude body1="palm" body2="index_mp" />
+    <exclude body1="index_mp" body2="index_pp" />
+    <exclude body1="index_pp" body2="index_ip" />
+    <exclude body1="palm" body2="middle_mp" />
+    <exclude body1="middle_mp" body2="middle_pp" />
+    <exclude body1="middle_pp" body2="middle_ip" />
+    <exclude body1="palm" body2="ring_mp" />
+    <exclude body1="ring_mp" body2="ring_pp" />
+    <exclude body1="ring_pp" body2="ring_ip" />
+    <exclude body1="palm" body2="pinky_mp" />
+    <exclude body1="pinky_mp" body2="pinky_pp" />
+    <exclude body1="pinky_pp" body2="pinky_ip" />
+  </contact>
+</mujoco>

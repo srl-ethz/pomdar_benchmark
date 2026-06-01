@@ -1,0 +1,53 @@
+<mujoco model="G3_Disk">
+
+  <asset>
+    <material name="object_material" rgba="1 1 1 1" shininess="0.3"/>
+
+    <mesh name="g9101112_base_plate_visual" file="g9101112_base_plate_visual.stl" scale="1 1 1"/>
+    <mesh name="g_plate_collision_part1" file="g_plate_collision_part1.stl" scale="1 1 1"/>
+    <mesh name="g_plate_collision_part2" file="g_plate_collision_part2.stl" scale="1 1 1"/>
+    <mesh name="g_plate_collision_part3" file="g_plate_collision_part3.stl" scale="1 1 1"/>
+    <mesh name="g1112_bracket_collision_part1" file="g1112_bracket_collision_part1.stl" scale="1 1 1"/>
+    <mesh name="g1112_bracket_collision_part2" file="g1112_bracket_collision_part2.stl" scale="1 1 1"/>
+    <mesh name="g1112_bracket_collision_part3" file="g1112_bracket_collision_part3.stl" scale="1 1 1"/>
+    <mesh name="g1112_bracket_collision_part4" file="g1112_bracket_collision_part4.stl" scale="1 1 1"/>
+    <mesh name="g111213_pick_holder_collision" file="g111213_pick_holder_collision.stl" scale="1 1 1"/>
+
+    <mesh name="g11_disk_visual" file="g11_disk_visual.stl" scale="1 1 1"/>
+    <mesh name="g1112_disk_collision" file="g1112_disk_collision.stl" scale="1 1 1"/>
+
+  </asset>
+
+  <default>
+    <default class="visual">
+      <geom contype="0" conaffinity="0" group="2"/>
+    </default>
+    <default class="collision">
+      <geom group="3" solimp="0.5 0.99 0.0001" solref="0.005 1"/>
+    </default>
+  </default>
+
+  <worldbody>
+    <body name="base_plate" pos="0 0 0">
+      <geom name="g9101112_base_plate_visual" type="mesh" mesh="g9101112_base_plate_visual" rgba="0.3 0.3 0.3 1" mass="0" class="visual"/>
+      <geom name="g_plate_collision_part1" type="mesh" mesh="g_plate_collision_part1" class="collision" density="248"/>
+      <geom name="g_plate_collision_part2" type="mesh" mesh="g_plate_collision_part2" class="collision" density="248"/>
+      <!-- <geom name="g_plate_collision_part3" type="mesh" mesh="g_plate_collision_part3" class="collision" density="248"/> -->
+      <geom size="0.1265 0.1063 0.007"  pos="0 0 0.007" type="box" density="248" class="collision"/>
+      <geom name="g1112_bracket_collision_part1" type="mesh" mesh="g1112_bracket_collision_part1" class="collision" density="248"/>
+      <geom name="g1112_bracket_collision_part2" type="mesh" mesh="g1112_bracket_collision_part2" class="collision" density="248"/>
+      <geom name="g1112_bracket_collision_part3" type="mesh" mesh="g1112_bracket_collision_part3" class="collision" density="248"/>
+      <geom name="g1112_bracket_collision_part4" type="mesh" mesh="g1112_bracket_collision_part4" class="collision" density="248"/>
+      <!-- <geom name="g111213_pick_holder_collision" type="mesh" mesh="g111213_pick_holder_collision" class="collision" density="248"/> -->
+      <geom size="0.0134 0.009"  pos="0.1155 0.0773 0.068" type="cylinder" density="248" class="collision" friction="0.5 0.5 0.01"/>
+    </body>
+
+    <body name="g11_disk" pos="0 0 0">
+      <joint name="g11_free_joint" type="free"/>
+      <geom name="g11_disk_visual" type="mesh" mesh="g11_disk_visual" material="object_material" mass="0" class="visual"/>
+      <!-- <geom name="g1112_disk_collision" type="mesh" mesh="g1112_disk_collision" class="collision" density="248"/> -->
+      <geom size="0.072 0.0025"  pos="0.1155 0.0773 0.0795" type="cylinder" density="248" class="collision" friction="0.5 0.5 0.01"/>
+    </body>
+    
+  </worldbody>
+</mujoco>

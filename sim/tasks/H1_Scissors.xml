@@ -1,0 +1,348 @@
+<mujoco model="H1_Scissors">
+
+  <asset>
+    <mesh name="i10_horizontal_base" file="i10_horizontal_base.stl" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_0" file="i10_traj_upper/part_0.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_1" file="i10_traj_upper/part_1.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_2" file="i10_traj_upper/part_2.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_3" file="i10_traj_upper/part_3.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_4" file="i10_traj_upper/part_4.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_5" file="i10_traj_upper/part_5.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_6" file="i10_traj_upper/part_6.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_7" file="i10_traj_upper/part_7.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_8" file="i10_traj_upper/part_8.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_9" file="i10_traj_upper/part_9.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_10" file="i10_traj_upper/part_10.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_11" file="i10_traj_upper/part_11.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_12" file="i10_traj_upper/part_12.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_13" file="i10_traj_upper/part_13.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_14" file="i10_traj_upper/part_14.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_15" file="i10_traj_upper/part_15.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_16" file="i10_traj_upper/part_16.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_17" file="i10_traj_upper/part_17.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_18" file="i10_traj_upper/part_18.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_19" file="i10_traj_upper/part_19.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_20" file="i10_traj_upper/part_20.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_21" file="i10_traj_upper/part_21.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_upper_part_22" file="i10_traj_upper/part_22.obj" scale="1 1 1"/>
+
+    <mesh name="i10_traj_lower_part_0" file="i10_traj_lower/part_0.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_1" file="i10_traj_lower/part_1.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_2" file="i10_traj_lower/part_2.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_3" file="i10_traj_lower/part_3.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_4" file="i10_traj_lower/part_4.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_5" file="i10_traj_lower/part_5.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_6" file="i10_traj_lower/part_6.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_7" file="i10_traj_lower/part_7.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_8" file="i10_traj_lower/part_8.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_9" file="i10_traj_lower/part_9.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_10" file="i10_traj_lower/part_10.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_11" file="i10_traj_lower/part_11.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_12" file="i10_traj_lower/part_12.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_13" file="i10_traj_lower/part_13.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_14" file="i10_traj_lower/part_14.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_15" file="i10_traj_lower/part_15.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_16" file="i10_traj_lower/part_16.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_17" file="i10_traj_lower/part_17.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_18" file="i10_traj_lower/part_18.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_19" file="i10_traj_lower/part_19.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_20" file="i10_traj_lower/part_20.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_21" file="i10_traj_lower/part_21.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_22" file="i10_traj_lower/part_22.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_23" file="i10_traj_lower/part_23.obj" scale="1 1 1"/>
+    <mesh name="i10_traj_lower_part_24" file="i10_traj_lower/part_24.obj" scale="1 1 1"/>
+
+    <mesh name="scissors_joint" file="scissors_joint.stl" scale="1 1 1"/>
+    <mesh name="scissors_finger_side" file="scissors_finger_side.stl" scale="1 1 1"/>
+    <mesh name="scissors_thumb_side" file="scissors_thumb_side.stl" scale="1 1 1"/>
+
+    <mesh name="i10_thumb_handle_convex_part_0" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_0.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_1" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_1.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_2" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_2.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_3" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_3.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_4" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_4.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_5" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_5.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_6" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_6.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_7" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_7.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_8" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_8.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_9" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_9.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_10" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_10.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_11" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_11.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_12" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_12.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_13" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_13.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_14" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_14.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_15" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_15.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_16" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_16.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_17" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_17.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_18" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_18.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_19" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_19.obj" scale="1 1 1"/>
+    <mesh name="i10_thumb_handle_convex_part_20" file="i10_thumb_handle_decomposed_meshes/i10_thumb_handle_convex_part_20.obj" scale="1 1 1"/>
+
+    <mesh name="i10_finger_handle_convex_part_0" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_0.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_1" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_1.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_2" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_2.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_3" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_3.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_4" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_4.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_5" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_5.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_6" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_6.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_7" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_7.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_8" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_8.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_9" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_9.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_10" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_10.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_11" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_11.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_12" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_12.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_13" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_13.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_14" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_14.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_15" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_15.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_16" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_16.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_17" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_17.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_18" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_18.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_19" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_19.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_20" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_20.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_21" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_21.obj" scale="1 1 1"/>
+    <mesh name="i10_finger_handle_convex_part_22" file="i10_finger_handle_decomposed_meshes/i10_finger_handle_convex_part_22.obj" scale="1 1 1"/>
+
+    <mesh name="i10_ring_convex_part_0" file="i10_ring_decomposed_meshes/i10_ring_convex_part_0.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_1" file="i10_ring_decomposed_meshes/i10_ring_convex_part_1.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_2" file="i10_ring_decomposed_meshes/i10_ring_convex_part_2.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_3" file="i10_ring_decomposed_meshes/i10_ring_convex_part_3.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_4" file="i10_ring_decomposed_meshes/i10_ring_convex_part_4.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_5" file="i10_ring_decomposed_meshes/i10_ring_convex_part_5.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_6" file="i10_ring_decomposed_meshes/i10_ring_convex_part_6.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_7" file="i10_ring_decomposed_meshes/i10_ring_convex_part_7.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_8" file="i10_ring_decomposed_meshes/i10_ring_convex_part_8.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_9" file="i10_ring_decomposed_meshes/i10_ring_convex_part_9.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_10" file="i10_ring_decomposed_meshes/i10_ring_convex_part_10.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_11" file="i10_ring_decomposed_meshes/i10_ring_convex_part_11.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_12" file="i10_ring_decomposed_meshes/i10_ring_convex_part_12.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_13" file="i10_ring_decomposed_meshes/i10_ring_convex_part_13.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_14" file="i10_ring_decomposed_meshes/i10_ring_convex_part_14.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_15" file="i10_ring_decomposed_meshes/i10_ring_convex_part_15.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_16" file="i10_ring_decomposed_meshes/i10_ring_convex_part_16.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_17" file="i10_ring_decomposed_meshes/i10_ring_convex_part_17.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_18" file="i10_ring_decomposed_meshes/i10_ring_convex_part_18.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_19" file="i10_ring_decomposed_meshes/i10_ring_convex_part_19.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_20" file="i10_ring_decomposed_meshes/i10_ring_convex_part_20.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_21" file="i10_ring_decomposed_meshes/i10_ring_convex_part_21.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_22" file="i10_ring_decomposed_meshes/i10_ring_convex_part_22.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_23" file="i10_ring_decomposed_meshes/i10_ring_convex_part_23.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_24" file="i10_ring_decomposed_meshes/i10_ring_convex_part_24.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_25" file="i10_ring_decomposed_meshes/i10_ring_convex_part_25.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_26" file="i10_ring_decomposed_meshes/i10_ring_convex_part_26.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_27" file="i10_ring_decomposed_meshes/i10_ring_convex_part_27.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_28" file="i10_ring_decomposed_meshes/i10_ring_convex_part_28.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_29" file="i10_ring_decomposed_meshes/i10_ring_convex_part_29.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_30" file="i10_ring_decomposed_meshes/i10_ring_convex_part_30.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_31" file="i10_ring_decomposed_meshes/i10_ring_convex_part_31.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_32" file="i10_ring_decomposed_meshes/i10_ring_convex_part_32.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_33" file="i10_ring_decomposed_meshes/i10_ring_convex_part_33.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_34" file="i10_ring_decomposed_meshes/i10_ring_convex_part_34.obj" scale="1 1 1"/>
+    <mesh name="i10_ring_convex_part_35" file="i10_ring_decomposed_meshes/i10_ring_convex_part_35.obj" scale="1 1 1"/>
+
+    <material name="object_material" rgba="1 1 1 1" shininess="0.3"/>
+  </asset>
+
+  <default>
+    <default class="visual">
+      <geom contype="0" conaffinity="0" group="2"/>
+    </default>
+    <default class="collision">
+      <geom group="3"/>
+    </default>
+  </default>
+
+  <worldbody>
+    <body name="i10_horizontal_base_body" pos="0 0 0">
+      <geom name="i10_horizontal_base" type="mesh" mesh="i10_horizontal_base" material="object_material" mass="1" class="visual"/>
+      <geom type="box" size="0.003 0.020 0.0775" pos="-0.1155 -0.0118 0.0775" density="248" class="collision"/>
+      <geom type="box" size="0.003 0.020 0.0775" pos="0.1155 -0.0118 0.0775" density="248" class="collision"/>
+      <geom name="i10_traj_upper_part_0" type="mesh" mesh="i10_traj_upper_part_0" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_1" type="mesh" mesh="i10_traj_upper_part_1" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_2" type="mesh" mesh="i10_traj_upper_part_2" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_3" type="mesh" mesh="i10_traj_upper_part_3" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_4" type="mesh" mesh="i10_traj_upper_part_4" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_5" type="mesh" mesh="i10_traj_upper_part_5" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_6" type="mesh" mesh="i10_traj_upper_part_6" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_7" type="mesh" mesh="i10_traj_upper_part_7" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_8" type="mesh" mesh="i10_traj_upper_part_8" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_9" type="mesh" mesh="i10_traj_upper_part_9" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_10" type="mesh" mesh="i10_traj_upper_part_10" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_11" type="mesh" mesh="i10_traj_upper_part_11" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_12" type="mesh" mesh="i10_traj_upper_part_12" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_13" type="mesh" mesh="i10_traj_upper_part_13" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_14" type="mesh" mesh="i10_traj_upper_part_14" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_15" type="mesh" mesh="i10_traj_upper_part_15" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_16" type="mesh" mesh="i10_traj_upper_part_16" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_17" type="mesh" mesh="i10_traj_upper_part_17" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_18" type="mesh" mesh="i10_traj_upper_part_18" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_19" type="mesh" mesh="i10_traj_upper_part_19" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_20" type="mesh" mesh="i10_traj_upper_part_20" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_21" type="mesh" mesh="i10_traj_upper_part_21" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_upper_part_22" type="mesh" mesh="i10_traj_upper_part_22" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      
+      <geom name="i10_traj_lower_part_0" type="mesh" mesh="i10_traj_lower_part_0" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_1" type="mesh" mesh="i10_traj_lower_part_1" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_2" type="mesh" mesh="i10_traj_lower_part_2" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_3" type="mesh" mesh="i10_traj_lower_part_3" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_4" type="mesh" mesh="i10_traj_lower_part_4" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_5" type="mesh" mesh="i10_traj_lower_part_5" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_6" type="mesh" mesh="i10_traj_lower_part_6" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_7" type="mesh" mesh="i10_traj_lower_part_7" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_8" type="mesh" mesh="i10_traj_lower_part_8" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_9" type="mesh" mesh="i10_traj_lower_part_9" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_10" type="mesh" mesh="i10_traj_lower_part_10" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_11" type="mesh" mesh="i10_traj_lower_part_11" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_12" type="mesh" mesh="i10_traj_lower_part_12" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_13" type="mesh" mesh="i10_traj_lower_part_13" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_14" type="mesh" mesh="i10_traj_lower_part_14" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_15" type="mesh" mesh="i10_traj_lower_part_15" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_16" type="mesh" mesh="i10_traj_lower_part_16" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_17" type="mesh" mesh="i10_traj_lower_part_17" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_18" type="mesh" mesh="i10_traj_lower_part_18" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_19" type="mesh" mesh="i10_traj_lower_part_19" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_20" type="mesh" mesh="i10_traj_lower_part_20" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_21" type="mesh" mesh="i10_traj_lower_part_21" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_22" type="mesh" mesh="i10_traj_lower_part_22" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_23" type="mesh" mesh="i10_traj_lower_part_23" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i10_traj_lower_part_24" type="mesh" mesh="i10_traj_lower_part_24" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+    </body>
+
+    <body name="scissors_body" pos="-0.1095 -0.0478 0.138">
+      <joint name="scissors_slide" type="slide" axis="1 0 0" range="0 0.20725" damping="0.05"/>
+      <geom name="scissors_joint" type="mesh" mesh="scissors_joint" material="object_material" class="visual"/>
+      <geom type="cylinder" size="0.0152 0.008875" quat="0.7071068 0 0.7071068 0" pos="0.00588 0 0" density="248" class="collision" solref="0.002 1"/>
+      <body name="scissors_thumb_side" pos="0 0 0">
+        <joint name="scissors_thumb_side_hinge" type="hinge" axis="-1 0 0" range="0 0.5236" damping="0.05"/>
+        <geom name="scissors_thumb_side" type="mesh" mesh="scissors_thumb_side" material="object_material" class="visual"/>
+        <geom name="i10_thumb_handle_convex_part_0" type="mesh" mesh="i10_thumb_handle_convex_part_0" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_1" type="mesh" mesh="i10_thumb_handle_convex_part_1" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_2" type="mesh" mesh="i10_thumb_handle_convex_part_2" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_3" type="mesh" mesh="i10_thumb_handle_convex_part_3" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_4" type="mesh" mesh="i10_thumb_handle_convex_part_4" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_5" type="mesh" mesh="i10_thumb_handle_convex_part_5" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_6" type="mesh" mesh="i10_thumb_handle_convex_part_6" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_7" type="mesh" mesh="i10_thumb_handle_convex_part_7" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_8" type="mesh" mesh="i10_thumb_handle_convex_part_8" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_9" type="mesh" mesh="i10_thumb_handle_convex_part_9" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_10" type="mesh" mesh="i10_thumb_handle_convex_part_10" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_11" type="mesh" mesh="i10_thumb_handle_convex_part_11" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_12" type="mesh" mesh="i10_thumb_handle_convex_part_12" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_13" type="mesh" mesh="i10_thumb_handle_convex_part_13" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_14" type="mesh" mesh="i10_thumb_handle_convex_part_14" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_15" type="mesh" mesh="i10_thumb_handle_convex_part_15" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_16" type="mesh" mesh="i10_thumb_handle_convex_part_16" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_17" type="mesh" mesh="i10_thumb_handle_convex_part_17" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_18" type="mesh" mesh="i10_thumb_handle_convex_part_18" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_19" type="mesh" mesh="i10_thumb_handle_convex_part_19" class="collision"/>
+        <geom name="i10_thumb_handle_convex_part_20" type="mesh" mesh="i10_thumb_handle_convex_part_20" class="collision"/>
+        
+        <geom name="i10_ring_convex_part_0" type="mesh" mesh="i10_ring_convex_part_0" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_1" type="mesh" mesh="i10_ring_convex_part_1" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_2" type="mesh" mesh="i10_ring_convex_part_2" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_3" type="mesh" mesh="i10_ring_convex_part_3" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_4" type="mesh" mesh="i10_ring_convex_part_4" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_5" type="mesh" mesh="i10_ring_convex_part_5" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_6" type="mesh" mesh="i10_ring_convex_part_6" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_7" type="mesh" mesh="i10_ring_convex_part_7" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_8" type="mesh" mesh="i10_ring_convex_part_8" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_9" type="mesh" mesh="i10_ring_convex_part_9" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_10" type="mesh" mesh="i10_ring_convex_part_10" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_11" type="mesh" mesh="i10_ring_convex_part_11" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_12" type="mesh" mesh="i10_ring_convex_part_12" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_13" type="mesh" mesh="i10_ring_convex_part_13" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_14" type="mesh" mesh="i10_ring_convex_part_14" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_15" type="mesh" mesh="i10_ring_convex_part_15" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_16" type="mesh" mesh="i10_ring_convex_part_16" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_17" type="mesh" mesh="i10_ring_convex_part_17" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_18" type="mesh" mesh="i10_ring_convex_part_18" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_19" type="mesh" mesh="i10_ring_convex_part_19" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_20" type="mesh" mesh="i10_ring_convex_part_20" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_21" type="mesh" mesh="i10_ring_convex_part_21" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_22" type="mesh" mesh="i10_ring_convex_part_22" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_23" type="mesh" mesh="i10_ring_convex_part_23" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_24" type="mesh" mesh="i10_ring_convex_part_24" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_25" type="mesh" mesh="i10_ring_convex_part_25" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_26" type="mesh" mesh="i10_ring_convex_part_26" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_27" type="mesh" mesh="i10_ring_convex_part_27" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_28" type="mesh" mesh="i10_ring_convex_part_28" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_29" type="mesh" mesh="i10_ring_convex_part_29" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_30" type="mesh" mesh="i10_ring_convex_part_30" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_31" type="mesh" mesh="i10_ring_convex_part_31" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_32" type="mesh" mesh="i10_ring_convex_part_32" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_33" type="mesh" mesh="i10_ring_convex_part_33" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_34" type="mesh" mesh="i10_ring_convex_part_34" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring_convex_part_35" type="mesh" mesh="i10_ring_convex_part_35" pos="0.00195 0.040 -0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+      </body>
+
+      <body name="scissors_finger_side" pos="0 0 0">
+        <joint name="scissors_finger_side_hinge" type="hinge" axis="1 0 0" range="0 0.5236" damping="0.05"/>
+        <geom name="scissors_finger_side" type="mesh" mesh="scissors_finger_side" material="object_material" class="visual"/>
+        <geom name="i10_finger_handle_convex_part_0" type="mesh" mesh="i10_finger_handle_convex_part_0" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_1" type="mesh" mesh="i10_finger_handle_convex_part_1" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_2" type="mesh" mesh="i10_finger_handle_convex_part_2" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_3" type="mesh" mesh="i10_finger_handle_convex_part_3" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_4" type="mesh" mesh="i10_finger_handle_convex_part_4" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_5" type="mesh" mesh="i10_finger_handle_convex_part_5" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_6" type="mesh" mesh="i10_finger_handle_convex_part_6" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_7" type="mesh" mesh="i10_finger_handle_convex_part_7" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_8" type="mesh" mesh="i10_finger_handle_convex_part_8" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_9" type="mesh" mesh="i10_finger_handle_convex_part_9" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_10" type="mesh" mesh="i10_finger_handle_convex_part_10" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_11" type="mesh" mesh="i10_finger_handle_convex_part_11" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_12" type="mesh" mesh="i10_finger_handle_convex_part_12" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_13" type="mesh" mesh="i10_finger_handle_convex_part_13" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_14" type="mesh" mesh="i10_finger_handle_convex_part_14" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_15" type="mesh" mesh="i10_finger_handle_convex_part_15" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_16" type="mesh" mesh="i10_finger_handle_convex_part_16" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_17" type="mesh" mesh="i10_finger_handle_convex_part_17" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_18" type="mesh" mesh="i10_finger_handle_convex_part_18" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_19" type="mesh" mesh="i10_finger_handle_convex_part_19" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_20" type="mesh" mesh="i10_finger_handle_convex_part_20" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_21" type="mesh" mesh="i10_finger_handle_convex_part_21" class="collision"/>
+        <geom name="i10_finger_handle_convex_part_22" type="mesh" mesh="i10_finger_handle_convex_part_22" class="collision"/>
+        
+        <geom name="i10_ring2_convex_part_0" type="mesh" mesh="i10_ring_convex_part_0" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_1" type="mesh" mesh="i10_ring_convex_part_1" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_2" type="mesh" mesh="i10_ring_convex_part_2" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_3" type="mesh" mesh="i10_ring_convex_part_3" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_4" type="mesh" mesh="i10_ring_convex_part_4" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_5" type="mesh" mesh="i10_ring_convex_part_5" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_6" type="mesh" mesh="i10_ring_convex_part_6" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_7" type="mesh" mesh="i10_ring_convex_part_7" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_8" type="mesh" mesh="i10_ring_convex_part_8" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_9" type="mesh" mesh="i10_ring_convex_part_9" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_10" type="mesh" mesh="i10_ring_convex_part_10" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_11" type="mesh" mesh="i10_ring_convex_part_11" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_12" type="mesh" mesh="i10_ring_convex_part_12" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_13" type="mesh" mesh="i10_ring_convex_part_13" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_14" type="mesh" mesh="i10_ring_convex_part_14" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_15" type="mesh" mesh="i10_ring_convex_part_15" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_16" type="mesh" mesh="i10_ring_convex_part_16" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_17" type="mesh" mesh="i10_ring_convex_part_17" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_18" type="mesh" mesh="i10_ring_convex_part_18" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_19" type="mesh" mesh="i10_ring_convex_part_19" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_20" type="mesh" mesh="i10_ring_convex_part_20" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_21" type="mesh" mesh="i10_ring_convex_part_21" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_22" type="mesh" mesh="i10_ring_convex_part_22" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_23" type="mesh" mesh="i10_ring_convex_part_23" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_24" type="mesh" mesh="i10_ring_convex_part_24" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_25" type="mesh" mesh="i10_ring_convex_part_25" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_26" type="mesh" mesh="i10_ring_convex_part_26" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_27" type="mesh" mesh="i10_ring_convex_part_27" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_28" type="mesh" mesh="i10_ring_convex_part_28" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_29" type="mesh" mesh="i10_ring_convex_part_29" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_30" type="mesh" mesh="i10_ring_convex_part_30" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_31" type="mesh" mesh="i10_ring_convex_part_31" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_32" type="mesh" mesh="i10_ring_convex_part_32" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_33" type="mesh" mesh="i10_ring_convex_part_33" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_34" type="mesh" mesh="i10_ring_convex_part_34" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i10_ring2_convex_part_35" type="mesh" mesh="i10_ring_convex_part_35" pos="0.00805 0.040 0.007" density="248" class="collision" friction="1 0.1 0.1"/>
+        
+        
+      </body>
+    </body>
+
+    
+    
+  </worldbody>
+</mujoco>

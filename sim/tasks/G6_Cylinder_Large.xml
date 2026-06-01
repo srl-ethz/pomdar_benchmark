@@ -1,0 +1,101 @@
+<mujoco model="G6_Cylinder_Large">
+
+  <asset>
+    <material name="object_material" rgba="1 1 1 1" shininess="0.3"/>
+
+    <mesh name="g1234567_base_plate_visual" file="g1234567_base_plate_visual.stl" scale="1 1 1"/>
+    <mesh name="g_plate_collision_part1" file="g_plate_collision_part1.stl" scale="1 1 1"/>
+    <mesh name="g_plate_collision_part2" file="g_plate_collision_part2.stl" scale="1 1 1"/>
+    <mesh name="g_plate_collision_part3" file="g_plate_collision_part3.stl" scale="1 1 1"/>
+    <mesh name="g1_rim_part_0" file="g1_rim/part_0.obj" scale="1 1 1"/>
+    <mesh name="g1_rim_part_1" file="g1_rim/part_1.obj" scale="1 1 1"/>
+    <mesh name="g1_rim_part_2" file="g1_rim/part_2.obj" scale="1 1 1"/>
+    <mesh name="g1_rim_part_3" file="g1_rim/part_3.obj" scale="1 1 1"/>
+    <mesh name="g1_rim_part_4" file="g1_rim/part_4.obj" scale="1 1 1"/>
+    <mesh name="g1_rim_part_5" file="g1_rim/part_5.obj" scale="1 1 1"/>
+    <mesh name="g1_rim_part_6" file="g1_rim/part_6.obj" scale="1 1 1"/>
+    <mesh name="g1_rim_part_7" file="g1_rim/part_7.obj" scale="1 1 1"/>
+    <mesh name="g1_rim_part_8" file="g1_rim/part_8.obj" scale="1 1 1"/>
+    <mesh name="g1_rim_part_9" file="g1_rim/part_9.obj" scale="1 1 1"/>
+    <mesh name="g1_rim_part_10" file="g1_rim/part_10.obj" scale="1 1 1"/>
+    <mesh name="g1_rim_part_11" file="g1_rim/part_11.obj" scale="1 1 1"/>
+    <mesh name="g1_rim_part_12" file="g1_rim/part_12.obj" scale="1 1 1"/>
+    <mesh name="g1_rim_part_13" file="g1_rim/part_13.obj" scale="1 1 1"/>
+    <mesh name="g1_rim_part_14" file="g1_rim/part_14.obj" scale="1 1 1"/>
+    <mesh name="g1_rim_part_15" file="g1_rim/part_15.obj" scale="1 1 1"/>
+    <mesh name="g1_rim_part_16" file="g1_rim/part_16.obj" scale="1 1 1"/>
+
+    <mesh name="g1_cylinder_visual" file="g1_cylinder_visual.stl" scale="1 1 1"/>
+    <mesh name="g1_cylinder_collision_part_0" file="g1_cylinder_collision/part_0.obj" scale="1 1 1"/>
+    <mesh name="g1_cylinder_collision_part_1" file="g1_cylinder_collision/part_1.obj" scale="1 1 1"/>
+    <mesh name="g1_cylinder_collision_part_2" file="g1_cylinder_collision/part_2.obj" scale="1 1 1"/>
+    <mesh name="g1_cylinder_collision_part_3" file="g1_cylinder_collision/part_3.obj" scale="1 1 1"/>
+    <mesh name="g1_cylinder_collision_part_4" file="g1_cylinder_collision/part_4.obj" scale="1 1 1"/>
+    <mesh name="g1_cylinder_collision_part_5" file="g1_cylinder_collision/part_5.obj" scale="1 1 1"/>
+    <mesh name="g1_cylinder_collision_part_6" file="g1_cylinder_collision/part_6.obj" scale="1 1 1"/>
+    <mesh name="g1_cylinder_collision_part_7" file="g1_cylinder_collision/part_7.obj" scale="1 1 1"/>
+    <mesh name="g1_cylinder_collision_part_8" file="g1_cylinder_collision/part_8.obj" scale="1 1 1"/>
+    <mesh name="g1_cylinder_collision_part_9" file="g1_cylinder_collision/part_9.obj" scale="1 1 1"/>
+    <mesh name="g1_cylinder_collision_part_10" file="g1_cylinder_collision/part_10.obj" scale="1 1 1"/>
+    <mesh name="g1_cylinder_collision_part_11" file="g1_cylinder_collision/part_11.obj" scale="1 1 1"/>
+    <mesh name="g1_cylinder_collision_part_12" file="g1_cylinder_collision/part_12.obj" scale="1 1 1"/>
+    <mesh name="g1_cylinder_collision_part_13" file="g1_cylinder_collision/part_13.obj" scale="1 1 1"/>
+  </asset>
+
+  <default>
+    <default class="visual">
+      <geom contype="0" conaffinity="0" group="2"/>
+    </default>
+    <default class="collision">
+      <geom group="3"/>
+    </default>
+  </default>
+
+  <worldbody>
+    <body name="base_plate" pos="0 0 0">
+      <geom name="g1234567_base_plate_visual" type="mesh" mesh="g1234567_base_plate_visual" rgba="0.3 0.3 0.3 1" mass="0" class="visual"/>
+      <geom name="g_plate_collision_part1" type="mesh" mesh="g_plate_collision_part1" class="collision" density="248"/>
+      <geom name="g_plate_collision_part2" type="mesh" mesh="g_plate_collision_part2" class="collision" density="248"/>
+      <geom name="g_plate_collision_part3" type="mesh" mesh="g_plate_collision_part3" class="collision" density="248"/>
+      <geom name="g1_rim_part_0" type="mesh" mesh="g1_rim_part_0" class="collision" density="248"/>
+      <geom name="g1_rim_part_1" type="mesh" mesh="g1_rim_part_1" class="collision" density="248"/>
+      <geom name="g1_rim_part_2" type="mesh" mesh="g1_rim_part_2" class="collision" density="248"/>
+      <geom name="g1_rim_part_3" type="mesh" mesh="g1_rim_part_3" class="collision" density="248"/>
+      <geom name="g1_rim_part_4" type="mesh" mesh="g1_rim_part_4" class="collision" density="248"/>
+      <geom name="g1_rim_part_5" type="mesh" mesh="g1_rim_part_5" class="collision" density="248"/>
+      <geom name="g1_rim_part_6" type="mesh" mesh="g1_rim_part_6" class="collision" density="248"/>
+      <geom name="g1_rim_part_7" type="mesh" mesh="g1_rim_part_7" class="collision" density="248"/>
+      <geom name="g1_rim_part_8" type="mesh" mesh="g1_rim_part_8" class="collision" density="248"/>
+      <geom name="g1_rim_part_9" type="mesh" mesh="g1_rim_part_9" class="collision" density="248"/>
+      <geom name="g1_rim_part_10" type="mesh" mesh="g1_rim_part_10" class="collision" density="248"/>
+      <geom name="g1_rim_part_11" type="mesh" mesh="g1_rim_part_11" class="collision" density="248"/>
+      <geom name="g1_rim_part_12" type="mesh" mesh="g1_rim_part_12" class="collision" density="248"/>
+      <geom name="g1_rim_part_13" type="mesh" mesh="g1_rim_part_13" class="collision" density="248"/>
+      <geom name="g1_rim_part_14" type="mesh" mesh="g1_rim_part_14" class="collision" density="248"/>
+      <geom name="g1_rim_part_15" type="mesh" mesh="g1_rim_part_15" class="collision" density="248"/>
+      <geom name="g1_rim_part_16" type="mesh" mesh="g1_rim_part_16" class="collision" density="248"/>
+
+    </body>
+
+    <body name="g1_cylinder" pos="0 0 0">
+      <joint name="g1_free_joint" type="free"/>
+
+      <geom name="g1_cylinder_visual" type="mesh" mesh="g1_cylinder_visual" material="object_material" mass="0" class="visual"/>
+      <geom name="g1_cylinder_collision_part_0" type="mesh" mesh="g1_cylinder_collision_part_0" class="collision" density="248"/>
+      <geom name="g1_cylinder_collision_part_1" type="mesh" mesh="g1_cylinder_collision_part_1" class="collision" density="248"/>
+      <geom name="g1_cylinder_collision_part_2" type="mesh" mesh="g1_cylinder_collision_part_2" class="collision" density="248"/>
+      <geom name="g1_cylinder_collision_part_3" type="mesh" mesh="g1_cylinder_collision_part_3" class="collision" density="248"/>
+      <geom name="g1_cylinder_collision_part_4" type="mesh" mesh="g1_cylinder_collision_part_4" class="collision" density="248"/>
+      <geom name="g1_cylinder_collision_part_5" type="mesh" mesh="g1_cylinder_collision_part_5" class="collision" density="248"/>
+      <geom name="g1_cylinder_collision_part_6" type="mesh" mesh="g1_cylinder_collision_part_6" class="collision" density="248"/>
+      <geom name="g1_cylinder_collision_part_7" type="mesh" mesh="g1_cylinder_collision_part_7" class="collision" density="248"/>
+      <geom name="g1_cylinder_collision_part_8" type="mesh" mesh="g1_cylinder_collision_part_8" class="collision" density="248"/>
+      <geom name="g1_cylinder_collision_part_9" type="mesh" mesh="g1_cylinder_collision_part_9" class="collision" density="248"/>
+      <geom name="g1_cylinder_collision_part_10" type="mesh" mesh="g1_cylinder_collision_part_10" class="collision" density="248"/>
+      <geom name="g1_cylinder_collision_part_11" type="mesh" mesh="g1_cylinder_collision_part_11" class="collision" density="248"/>
+      <geom name="g1_cylinder_collision_part_12" type="mesh" mesh="g1_cylinder_collision_part_12" class="collision" density="248"/>
+      <geom name="g1_cylinder_collision_part_13" type="mesh" mesh="g1_cylinder_collision_part_13" class="collision" density="248"/>
+    </body>
+    
+  </worldbody>
+</mujoco>

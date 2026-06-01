@@ -1,0 +1,16 @@
+name: pomdar-teleop
+channels:
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+    - mujoco
+    - mediapipe>=0.10
+    - opencv-python
+    - numpy
+    - torch
+    - pytorch_kinematics
+    - scipy
+    - pyyaml

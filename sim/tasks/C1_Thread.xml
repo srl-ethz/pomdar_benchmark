@@ -1,0 +1,52 @@
+<mujoco model="C1_Thread">
+
+  <asset>
+    <mesh name="angle_plate" file="angle_plate.stl" scale="1 1 1"/>
+    <mesh name="screwing_base" file="screwing_base.stl" scale="1 1 1"/>
+    <mesh name="N10_screw_head" file="N10_screw_head.stl" scale="1 1 1"/>
+    <mesh name="N10_screw" file="N10_screw.stl" scale="1 1 1"/>
+
+    <material name="object_material" rgba="1 1 1 1" shininess="0.3"/>
+  </asset>
+
+  <default>
+    <default class="visual">
+      <geom contype="0" conaffinity="0" group="2"/>
+    </default>
+    <default class="collision">
+      <geom group="3"/>
+    </default>
+  </default>
+
+  <worldbody>
+
+    <body name="screwing_base" pos="0 0 0">
+      <geom name="angle_plate" type="mesh" mesh="angle_plate" material="object_material" class="visual"/>
+      <geom type="cylinder" size="0.06075 0.002" pos="0 0 0.002" density="248" class="collision"/>
+      <geom name="screwing_base" type="mesh" mesh="screwing_base" pos="0 0 0.004" material="object_material" class="visual"/>
+      <geom type="cylinder" size="0.00775 0.041785" pos="0 0 0.045785" density="248" class="collision"/>
+      <geom type="cylinder" size="0.02225 0.007785" pos="0 0 0.011785" density="248" class="collision"/>
+    </body>
+
+    <body name="bolt_body" pos="0 0 0.08757"> 
+      <joint name="bolt_slide" type="slide" pos="0 0 0.040" axis="0 0 -1" range="0 0.040"/>
+      <joint name="bolt_hinge" type="hinge" axis="0 0 1" range="-62.83 0" damping="0.00005"/>
+      <geom name="N10_screw" type="mesh" mesh="N10_screw" pos="0 0 0.040" material="object_material" class="visual"/>
+      <geom name="N10_screw_head" type="mesh" mesh="N10_screw_head" pos="0 0 0.040" mass="0.05" class="collision"/>
+    </body>
+    
+  </worldbody>
+
+  <actuator>
+    <motor name="slide_bolt_motor" joint="bolt_slide" ctrllimited="true" ctrlrange="-50 50"/>
+  </actuator>
+
+  <sensor>
+    <jointpos name="bolt_hinge_angle" joint="bolt_hinge"/>
+    <jointpos name="bolt_slide_position" joint="bolt_slide"/>
+    <jointvel name="bolt_slide_velocity" joint="bolt_slide"/>
+  </sensor>
+
+  <option gravity="0 0 -9.81"/>
+
+</mujoco>

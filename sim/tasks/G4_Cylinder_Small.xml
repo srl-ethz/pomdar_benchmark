@@ -1,0 +1,106 @@
+<mujoco model="G4_Cylinder_Small">
+
+  <asset>
+    <material name="object_material" rgba="1 1 1 1" shininess="0.3"/>
+
+    <mesh name="g1234567_base_plate_visual" file="g1234567_base_plate_visual.stl" scale="1 1 1"/>
+    <mesh name="g_plate_collision_part1" file="g_plate_collision_part1.stl" scale="1 1 1"/>
+    <mesh name="g_plate_collision_part2" file="g_plate_collision_part2.stl" scale="1 1 1"/>
+    <mesh name="g_plate_collision_part3" file="g_plate_collision_part3.stl" scale="1 1 1"/>
+    <mesh name="g7_rim_part_0" file="g7_rim/part_0.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_1" file="g7_rim/part_1.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_2" file="g7_rim/part_2.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_3" file="g7_rim/part_3.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_4" file="g7_rim/part_4.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_5" file="g7_rim/part_5.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_6" file="g7_rim/part_6.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_7" file="g7_rim/part_7.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_8" file="g7_rim/part_8.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_9" file="g7_rim/part_9.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_10" file="g7_rim/part_10.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_11" file="g7_rim/part_11.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_12" file="g7_rim/part_12.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_13" file="g7_rim/part_13.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_14" file="g7_rim/part_14.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_15" file="g7_rim/part_15.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_16" file="g7_rim/part_16.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_17" file="g7_rim/part_17.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_18" file="g7_rim/part_18.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_19" file="g7_rim/part_19.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_20" file="g7_rim/part_20.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_21" file="g7_rim/part_21.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_22" file="g7_rim/part_22.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_23" file="g7_rim/part_23.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_24" file="g7_rim/part_24.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_25" file="g7_rim/part_25.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_26" file="g7_rim/part_26.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_27" file="g7_rim/part_27.obj" scale="1 1 1"/>
+    <mesh name="g7_rim_part_28" file="g7_rim/part_28.obj" scale="1 1 1"/>
+
+
+    <mesh name="g7_stick_visual" file="g7_stick_visual.stl" scale="1 1 1"/>
+    <mesh name="g7_stick_collision_part1" file="g7_stick_collision_part1.stl" scale="1 1 1"/>
+    <mesh name="g7_stick_collision_part2" file="g7_stick_collision_part2.stl" scale="1 1 1"/>
+    <mesh name="g7_stick_collision_part3" file="g7_stick_collision_part3.stl" scale="1 1 1"/>
+    
+  </asset>
+
+  <default>
+    <default class="visual">
+      <geom contype="0" conaffinity="0" group="2"/>
+    </default>
+    <default class="collision">
+      <geom group="3"/>
+    </default>
+  </default>
+
+  <worldbody>
+    <body name="base_plate" pos="0 0 0">
+      <geom name="g1234567_base_plate_visual" type="mesh" mesh="g1234567_base_plate_visual" rgba="0.3 0.3 0.3 1" mass="0" class="visual"/>
+      <geom name="g_plate_collision_part1" type="mesh" mesh="g_plate_collision_part1" class="collision" density="248"/>
+      <geom name="g_plate_collision_part2" type="mesh" mesh="g_plate_collision_part2" class="collision" density="248"/>
+      <geom name="g_plate_collision_part3" type="mesh" mesh="g_plate_collision_part3" class="collision" density="248"/>
+      <geom name="g7_rim_part_0" type="mesh" mesh="g7_rim_part_0" class="collision" density="248"/>
+      <geom name="g7_rim_part_1" type="mesh" mesh="g7_rim_part_1" class="collision" density="248"/>
+      <geom name="g7_rim_part_2" type="mesh" mesh="g7_rim_part_2" class="collision" density="248"/>
+      <geom name="g7_rim_part_3" type="mesh" mesh="g7_rim_part_3" class="collision" density="248"/>
+      <geom name="g7_rim_part_4" type="mesh" mesh="g7_rim_part_4" class="collision" density="248"/>
+      <geom name="g7_rim_part_5" type="mesh" mesh="g7_rim_part_5" class="collision" density="248"/>
+      <geom name="g7_rim_part_6" type="mesh" mesh="g7_rim_part_6" class="collision" density="248"/>
+      <geom name="g7_rim_part_7" type="mesh" mesh="g7_rim_part_7" class="collision" density="248"/>
+      <geom name="g7_rim_part_8" type="mesh" mesh="g7_rim_part_8" class="collision" density="248"/>
+      <geom name="g7_rim_part_9" type="mesh" mesh="g7_rim_part_9" class="collision" density="248"/>
+      <geom name="g7_rim_part_10" type="mesh" mesh="g7_rim_part_10" class="collision" density="248"/>
+      <geom name="g7_rim_part_11" type="mesh" mesh="g7_rim_part_11" class="collision" density="248"/>
+      <geom name="g7_rim_part_12" type="mesh" mesh="g7_rim_part_12" class="collision" density="248"/>
+      <geom name="g7_rim_part_13" type="mesh" mesh="g7_rim_part_13" class="collision" density="248"/>
+      <geom name="g7_rim_part_14" type="mesh" mesh="g7_rim_part_14" class="collision" density="248"/>
+      <geom name="g7_rim_part_15" type="mesh" mesh="g7_rim_part_15" class="collision" density="248"/>
+      <geom name="g7_rim_part_16" type="mesh" mesh="g7_rim_part_16" class="collision" density="248"/>
+      <geom name="g7_rim_part_17" type="mesh" mesh="g7_rim_part_17" class="collision" density="248"/>
+      <geom name="g7_rim_part_18" type="mesh" mesh="g7_rim_part_18" class="collision" density="248"/>
+      <geom name="g7_rim_part_19" type="mesh" mesh="g7_rim_part_19" class="collision" density="248"/>
+      <geom name="g7_rim_part_20" type="mesh" mesh="g7_rim_part_20" class="collision" density="248"/>
+      <geom name="g7_rim_part_21" type="mesh" mesh="g7_rim_part_21" class="collision" density="248"/>
+      <geom name="g7_rim_part_22" type="mesh" mesh="g7_rim_part_22" class="collision" density="248"/>
+      <geom name="g7_rim_part_23" type="mesh" mesh="g7_rim_part_23" class="collision" density="248"/>
+      <geom name="g7_rim_part_24" type="mesh" mesh="g7_rim_part_24" class="collision" density="248"/>
+      <geom name="g7_rim_part_25" type="mesh" mesh="g7_rim_part_25" class="collision" density="248"/>
+      <geom name="g7_rim_part_26" type="mesh" mesh="g7_rim_part_26" class="collision" density="248"/>
+      <geom name="g7_rim_part_27" type="mesh" mesh="g7_rim_part_27" class="collision" density="248"/>
+      <geom name="g7_rim_part_28" type="mesh" mesh="g7_rim_part_28" class="collision" density="248"/>
+
+
+    </body>
+
+    <body name="g7_stick" pos="0 0 0">
+      <joint name="g7_free_joint" type="free"/>
+      <geom name="g7_stick_visual" type="mesh" mesh="g7_stick_visual" material="object_material" mass="0" class="visual"/>
+      <geom name="g7_stick_collision_part1" type="mesh" mesh="g7_stick_collision_part1" class="collision" density="248"/>
+      <geom name="g7_stick_collision_part2" type="mesh" mesh="g7_stick_collision_part2" class="collision" density="248"/>
+      <geom name="g7_stick_collision_part3" type="mesh" mesh="g7_stick_collision_part3" class="collision" density="248"/>
+      
+    </body>
+    
+  </worldbody>
+</mujoco>

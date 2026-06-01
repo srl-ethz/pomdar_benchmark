@@ -1,0 +1,120 @@
+<mujoco model="H2_Chopsticks">
+
+  <asset>
+    <mesh name="i12_horizontal_base" file="i12_horizontal_base.stl" scale="1 1 1"/>
+    <mesh name="i12_holder1_collision" file="i12_holder1_collision.stl" scale="1 1 1"/>
+    <mesh name="i12_holder2_collision" file="i12_holder2_collision.stl" scale="1 1 1"/>
+
+    <mesh name="i12_traj_part_0" file="i12_traj/part_0.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_1" file="i12_traj/part_1.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_2" file="i12_traj/part_2.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_3" file="i12_traj/part_3.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_4" file="i12_traj/part_4.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_5" file="i12_traj/part_5.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_6" file="i12_traj/part_6.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_7" file="i12_traj/part_7.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_8" file="i12_traj/part_8.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_9" file="i12_traj/part_9.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_10" file="i12_traj/part_10.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_11" file="i12_traj/part_11.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_12" file="i12_traj/part_12.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_13" file="i12_traj/part_13.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_14" file="i12_traj/part_14.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_15" file="i12_traj/part_15.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_16" file="i12_traj/part_16.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_17" file="i12_traj/part_17.obj" scale="1 1 1"/>
+    <mesh name="i12_traj_part_18" file="i12_traj/part_18.obj" scale="1 1 1"/>
+
+    <mesh name="i12_stationary_chopstick_visual" file="i12_stationary_chopstick_visual.stl" scale="1 1 1"/>
+    <mesh name="i12_stationary_chopstick_collision" file="i12_stationary_chopstick_collision.stl" scale="1 1 1"/>
+    <mesh name="i12_dynamic_chopstick_visual" file="i12_dynamic_chopstick_visual.stl" scale="1 1 1"/>
+    <mesh name="i12_dynamic_chopstick_collision" file="i12_dynamic_chopstick_collision.stl" scale="1 1 1"/>
+
+    <mesh name="i12_ring_part_0" file="i12_ring/part_0.obj" scale="1 1 1"/>
+    <mesh name="i12_ring_part_1" file="i12_ring/part_1.obj" scale="1 1 1"/>
+    <mesh name="i12_ring_part_2" file="i12_ring/part_2.obj" scale="1 1 1"/>
+    <mesh name="i12_ring_part_3" file="i12_ring/part_3.obj" scale="1 1 1"/>
+    <mesh name="i12_ring_part_4" file="i12_ring/part_4.obj" scale="1 1 1"/>
+    <mesh name="i12_ring_part_5" file="i12_ring/part_5.obj" scale="1 1 1"/>
+    <mesh name="i12_ring_part_6" file="i12_ring/part_6.obj" scale="1 1 1"/>
+    <mesh name="i12_ring_part_7" file="i12_ring/part_7.obj" scale="1 1 1"/>
+    <mesh name="i12_ring_part_8" file="i12_ring/part_8.obj" scale="1 1 1"/>
+    <mesh name="i12_ring_part_9" file="i12_ring/part_9.obj" scale="1 1 1"/>
+    <mesh name="i12_ring_part_10" file="i12_ring/part_10.obj" scale="1 1 1"/>
+    <mesh name="i12_ring_part_11" file="i12_ring/part_11.obj" scale="1 1 1"/>
+    <mesh name="i12_ring_part_12" file="i12_ring/part_12.obj" scale="1 1 1"/>
+    <mesh name="i12_ring_part_13" file="i12_ring/part_13.obj" scale="1 1 1"/>
+    <mesh name="i12_ring_part_14" file="i12_ring/part_14.obj" scale="1 1 1"/>
+    <mesh name="i12_ring_part_15" file="i12_ring/part_15.obj" scale="1 1 1"/>
+    <mesh name="i12_ring_part_16" file="i12_ring/part_16.obj" scale="1 1 1"/>
+
+    <material name="object_material" rgba="1 1 1 1" shininess="0.3"/>
+  </asset>
+
+  <default>
+    <default class="visual">
+      <geom contype="0" conaffinity="0" group="2"/>
+    </default>
+    <default class="collision">
+      <geom group="3"/>
+    </default>
+  </default>
+
+  <worldbody>
+    <body name="i12_horizontal_base_body" pos="0 0 0">
+      <geom name="i12_horizontal_base" type="mesh" mesh="i12_horizontal_base" material="object_material" mass="1" class="visual"/>
+      <geom name="i12_holder1_collision" type="mesh" mesh="i12_holder1_collision" class="collision"/>
+      <geom name="i12_holder2_collision" type="mesh" mesh="i12_holder2_collision" class="collision"/>
+      
+      <geom name="i12_traj_part_0" type="mesh" mesh="i12_traj_part_0" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_1" type="mesh" mesh="i12_traj_part_1" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_2" type="mesh" mesh="i12_traj_part_2" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_3" type="mesh" mesh="i12_traj_part_3" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_4" type="mesh" mesh="i12_traj_part_4" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_5" type="mesh" mesh="i12_traj_part_5" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_6" type="mesh" mesh="i12_traj_part_6" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_7" type="mesh" mesh="i12_traj_part_7" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_8" type="mesh" mesh="i12_traj_part_8" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_9" type="mesh" mesh="i12_traj_part_9" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_10" type="mesh" mesh="i12_traj_part_10" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_11" type="mesh" mesh="i12_traj_part_11" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_12" type="mesh" mesh="i12_traj_part_12" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_13" type="mesh" mesh="i12_traj_part_13" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_14" type="mesh" mesh="i12_traj_part_14" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_15" type="mesh" mesh="i12_traj_part_15" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_16" type="mesh" mesh="i12_traj_part_16" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_17" type="mesh" mesh="i12_traj_part_17" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+      <geom name="i12_traj_part_18" type="mesh" mesh="i12_traj_part_18" class="collision" solref="0.002 1" friction="1 0.1 0.1"/>
+    </body>
+
+    <body name="stationary_chopstick_body" pos="0 0 0">
+      <joint name="stationary_chopstick_slide" type="slide" axis="1 0 0" range="0 0.2195" damping="0.05"/>
+      <geom name="i12_stationary_chopstick_visual" type="mesh" mesh="i12_stationary_chopstick_visual" material="object_material" class="visual"/>
+      <geom name="i12_stationary_chopstick_collision" type="mesh" mesh="i12_stationary_chopstick_collision" density="248" class="collision"/>
+      <body name="dynamic_chopstick" pos="0 0 0">
+        <joint name="dynamic_chopstick_hinge" type="hinge" pos="-0.10975 -0.0228 0.283" axis="1 0 0" range="-0.4363 0.4363" damping="0.05"/>
+        <geom name="i12_dynamic_chopstick_visual" type="mesh" mesh="i12_dynamic_chopstick_visual" material="object_material" class="visual"/>
+        <geom name="i12_dynamic_chopstick_collision" type="mesh" mesh="i12_dynamic_chopstick_collision" density="248" class="collision"/>
+
+        <geom name="i12_ring_part_0" type="mesh" mesh="i12_ring_part_0" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i12_ring_part_1" type="mesh" mesh="i12_ring_part_1" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i12_ring_part_2" type="mesh" mesh="i12_ring_part_2" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i12_ring_part_3" type="mesh" mesh="i12_ring_part_3" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i12_ring_part_4" type="mesh" mesh="i12_ring_part_4" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i12_ring_part_5" type="mesh" mesh="i12_ring_part_5" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i12_ring_part_6" type="mesh" mesh="i12_ring_part_6" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i12_ring_part_7" type="mesh" mesh="i12_ring_part_7" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i12_ring_part_8" type="mesh" mesh="i12_ring_part_8" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i12_ring_part_9" type="mesh" mesh="i12_ring_part_9" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i12_ring_part_10" type="mesh" mesh="i12_ring_part_10" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i12_ring_part_11" type="mesh" mesh="i12_ring_part_11" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i12_ring_part_12" type="mesh" mesh="i12_ring_part_12" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i12_ring_part_13" type="mesh" mesh="i12_ring_part_13" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i12_ring_part_14" type="mesh" mesh="i12_ring_part_14" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i12_ring_part_15" type="mesh" mesh="i12_ring_part_15" density="248" class="collision" friction="1 0.1 0.1"/>
+        <geom name="i12_ring_part_16" type="mesh" mesh="i12_ring_part_16" density="248" class="collision" friction="1 0.1 0.1"/>
+      </body>
+    </body>
+
+  </worldbody>
+</mujoco>

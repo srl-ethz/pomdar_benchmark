@@ -1,0 +1,83 @@
+gc_tendons:
+  'joint_palm': {} # it means the tower to the palm (not the hand_root)
+  'joint_abd_thumb': {}
+  'joint_pip_thumb': {}
+  'joint_iip_thumb': {}
+  'joint_dip_thumb': {}
+  'joint_abd_index': {}
+  'joint_pip_index': {}
+  'joint_iip_index': {}
+  'joint_abd_middle': {}
+  'joint_pip_middle': {}
+  'joint_iip_middle': {}
+  'joint_abd_ring': {}
+  'joint_pip_ring': {}
+  'joint_iip_ring': {}
+  'joint_abd_pinky': {}
+  'joint_pip_pinky': {}
+  'joint_iip_pinky': {}
+
+
+finger_to_tip:
+  thumb: thumb_fingertip
+  index: index_fingertip
+  # ring_mp and middle_mp body labels are physically swapped in the URDF:
+  # the body named "ring_mp" occupies the anatomical middle-finger slot and
+  # vice-versa. Mapping is corrected here so MANO middle → physical middle.
+  middle: ring_fingertip
+  ring: middle_fingertip
+  pinky: pinky_fingertip
+
+finger_to_base:
+  thumb: joint_abd_thumb_jointbody
+  index: joint_abd_index_jointbody
+  middle: joint_abd_ring_jointbody
+  ring: joint_abd_middle_jointbody
+  pinky: joint_abd_pinky_jointbody
+
+forearm_and_wrist:
+  forearm: tower
+  wrist: palm
+
+wrist_name: tower
+anchor_name: palm # all transformations are relative to the anchor frame
+
+gc_limits_lower : [
+  -28.0,  # joint_palm (right value is -30)  
+  -20.0,  # joint_abd_thumb
+  -50.0,  # joint_pip_thumb
+  -12.0,  # joint_iip_thumb
+  -20.0,  # joint_dip_thumb
+  -37.0,  # joint_abd_index
+  -20.0,  # joint_pip_index
+  -20.0,  # joint_iip_index
+  -37.0,  # joint_abd_middle
+  -20.0,  # joint_pip_middle
+  -20.0,  # joint_iip_middle
+  -37.0,  # joint_abd_ring
+  -20.0,  # joint_pip_ring
+  -20.0,  # joint_iip_ring
+  -37.0,  # joint_abd_pinky
+  -20.0,  # joint_pip_pinky
+  -20.0,  # joint_iip_pinky
+]
+
+gc_limits_upper : [
+  55.0,  # joint_palm (right value is 59) 
+  42.0,  # joint_abd_thumb
+  50.0,  # joint_pip_thumb
+  108.0,  # joint_iip_thumb
+  112.0,  # joint_dip_thumb
+  37.0,  # joint_abd_index
+  95.0,  # joint_pip_index
+  120.0,  # joint_iip_index
+  37.0,  # joint_abd_middle
+  91.0,  # joint_pip_middle
+  110.0,  # joint_iip_middle
+  37.0,  # joint_abd_ring
+  91.0,  # joint_pip_ring
+  110.0,  # joint_iip_ring
+  37.0,  # joint_abd_pinky
+  98.0,  # joint_pip_pinky
+  110.0,  # joint_iip_pinky
+]

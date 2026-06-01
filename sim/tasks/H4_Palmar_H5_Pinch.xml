@@ -1,0 +1,33 @@
+<mujoco model="H4_Palmar_H5_Pinch">
+  
+  <asset>
+    <mesh name="i131415_horizontal_base" file="i131415_horizontal_base.stl" scale="1 1 1"/>
+
+    <material name="object_material" rgba="1 1 1 1" shininess="0.3"/>
+  </asset>
+
+  <default>
+    <default class="visual">
+      <geom contype="0" conaffinity="0" group="2"/>
+    </default>
+    <default class="collision">
+      <geom group="3"/>
+    </default>
+  </default>
+
+  <worldbody>
+
+    <body name="i131415_horizontal_base_body" pos="0 0 0">
+      <geom name="i131415_horizontal_base" type="mesh" mesh="i131415_horizontal_base" material="object_material" mass="1" class="visual"/>
+      <geom type="box" size="0.003 0.020 0.0775" pos="-0.1155 -0.0118 0.0775" density="248" class="collision"/>
+      <geom type="box" size="0.003 0.020 0.0775" pos="0.1155 -0.0118 0.0775" density="248" class="collision"/>
+      <geom type="cylinder" size="0.01125 0.075" quat="0.7071068 0 0.7071068 0" pos="-0.1174 -0.04445 0.14375" density="248" class="collision"/>
+      <body name="long_rod_body" pos="-0.1924 -0.04445 0.14375">
+        <joint name="long_rod_slide" type="slide" axis="1 0 0" range="0 0.200" damping="0.05"/>
+        <geom type="cylinder" size="0.004 0.16295" quat="0.7071068 0 0.7071068 0" pos="0.16295 0 0" density="248"/>
+        <geom type="box" size="0.0065 0.0015 0.00435" pos="0.3174 0 0.00435" density="248"/>
+      </body>
+    </body>
+    
+  </worldbody>
+</mujoco>

@@ -1,0 +1,101 @@
+<mujoco model="C4_Fidget">
+  
+  <asset>
+
+    <mesh name="angle_plate" file="angle_plate.stl" scale="1 1 1"/>
+    <mesh name="fidget_holder" file="fidget_holder.stl" scale="1 1 1"/>
+    <mesh name="m2z27_gear" file="m2z27_gear.stl" scale="1 1 1"/>
+    <mesh name="clutch_rotor" file="clutch_rotor.stl" scale="1 1 1"/>
+    <mesh name="m2z15_mid_gear" file="m2z15_mid_gear.stl" scale="1 1 1"/>
+    <mesh name="fidget_spinner" file="fidget_spinner.stl" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_0" file="spinner_decomposed_meshes/spinner_convex_part_0.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_1" file="spinner_decomposed_meshes/spinner_convex_part_1.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_2" file="spinner_decomposed_meshes/spinner_convex_part_2.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_3" file="spinner_decomposed_meshes/spinner_convex_part_3.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_4" file="spinner_decomposed_meshes/spinner_convex_part_4.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_5" file="spinner_decomposed_meshes/spinner_convex_part_5.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_6" file="spinner_decomposed_meshes/spinner_convex_part_6.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_7" file="spinner_decomposed_meshes/spinner_convex_part_7.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_8" file="spinner_decomposed_meshes/spinner_convex_part_8.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_9" file="spinner_decomposed_meshes/spinner_convex_part_9.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_10" file="spinner_decomposed_meshes/spinner_convex_part_10.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_11" file="spinner_decomposed_meshes/spinner_convex_part_11.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_12" file="spinner_decomposed_meshes/spinner_convex_part_12.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_13" file="spinner_decomposed_meshes/spinner_convex_part_13.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_14" file="spinner_decomposed_meshes/spinner_convex_part_14.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_15" file="spinner_decomposed_meshes/spinner_convex_part_15.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_16" file="spinner_decomposed_meshes/spinner_convex_part_16.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_17" file="spinner_decomposed_meshes/spinner_convex_part_17.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_18" file="spinner_decomposed_meshes/spinner_convex_part_18.obj" scale="1 1 1"/>
+    <mesh name="spinner_convex_part_19" file="spinner_decomposed_meshes/spinner_convex_part_19.obj" scale="1 1 1"/>
+
+    <material name="object_material" rgba="1 1 1 1" shininess="0.3"/>
+  </asset>
+
+  <default>
+    <default class="visual">
+      <geom contype="0" conaffinity="0" group="2"/>
+    </default>
+    <default class="collision">
+      <geom group="3"/>
+    </default>
+  </default>
+
+  <worldbody>
+
+    <body name="fidget_rot_base" pos="0 0 0">
+      <geom name="angle_plate" type="mesh" mesh="angle_plate" material="object_material" class="visual"/>
+      <geom type="cylinder" size="0.06075 0.002" pos="0 0 0.002" density="248" class="collision"/>
+      <geom name="fidget_holder" type="mesh" mesh="fidget_holder" material="object_material" class="visual"/>
+      <geom type="cylinder" size="0.010 0.06325" pos="0 0 0.06325" density="248" class="collision"/>
+      <geom type="cylinder" size="0.011 0.0025" pos="0 -0.072 0.1025" density="248" class="collision"/>
+      <geom type="cylinder" size="0.011 0.003875" pos="0 -0.072 0.119375" density="248" class="collision"/>
+    </body>
+
+    <body name="clutch_rotor" pos="0 0 0.004">
+      <joint name="clutch_rotor_hinge_joint" type="hinge" axis="0 0 1"/>
+      <geom name="clutch_rotor" type="mesh" mesh="clutch_rotor" density="248" material="object_material" class="visual"/>
+      <geom name="m2z27_gear" type="mesh" mesh="m2z27_gear" pos="0 0 0.100" density="248" material="object_material" class="visual"/>
+    </body>
+
+    <body name="mid_gear" pos="0 -0.042 0.1055">
+      <joint name="mid_gear_hinge_joint" type="hinge" axis="0 0 1"/>
+      <geom name="m2z15_mid_gear" type="mesh" mesh="m2z15_mid_gear" mass="0.05" material="object_material" class="visual"/>
+    </body>
+
+    <body name="fidget_spinner" pos="0 -0.072 0.1055">
+      <joint name="fidget_spinner_hinge_joint" type="hinge" axis="0 0 1" damping="0.0005"/>
+      <geom name="fidget_spinner" type="mesh" mesh="fidget_spinner" mass="0.05" material="object_material" class="visual"/>
+      <geom type="cylinder" size="0.017 0.00275" pos="0 0 0.00275" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_0" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_1" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_2" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_3" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_4" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_5" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_6" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_7" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_8" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_9" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_10" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_11" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_12" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_13" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_14" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_15" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_16" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_17" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_18" class="collision"/>
+      <geom type="mesh" mesh="spinner_convex_part_19" class="collision"/>
+    </body>
+    
+  </worldbody>
+
+  <equality>
+    <!-- constraint: joint1 = -2 * joint2 -->
+    <joint name="gear_coupling1" joint1="fidget_spinner_hinge_joint" joint2="mid_gear_hinge_joint" polycoef="0 -1 0"/>
+    <joint name="gear_coupling2" joint1="mid_gear_hinge_joint" joint2="clutch_rotor_hinge_joint" polycoef="0 -1.8 0"/>
+  </equality>
+
+
+</mujoco>
