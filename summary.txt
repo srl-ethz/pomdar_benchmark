@@ -1,6 +1,0 @@
-This submission includes the following supplementary materials:
-1. Video Attachment
-One video file is provided, containing experimental demonstrations of the benchmark tasks and results presented in the paper.
-2. Simulation Files
-A folder named sim.zip is included, containing simulation files implemented in MuJoCo. Instructions on how to visualize and run these simulations are provided in the accompanying README.md file.
-The CAD files are too big for the 50MB limit, and therefore cannot be uploaded here
