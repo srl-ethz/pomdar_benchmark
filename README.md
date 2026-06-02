@@ -4,14 +4,15 @@ MuJoCo simulation assets for the **Orca hand** and all **18 PoMDAR benchmark tas
 
 ![PoMDAR benchmark overview](benchmark_overview-1.png)
 
-> **PoMDAR v2 is in progress** — an more stable version of the benchmark with improvements is planned for release in **August 2026**.
+> **PoMDAR v2 is in progress** — following user feedback, we are working on a more stable and reliable version of the benchmark, planned for release in **August 2026**.
+> For suggestions, complaints, or feedback, please open a [GitHub Issue](../../issues).
 
 ---
 
 ## Contents
 
 ```
-Multimedia/
+pomdar_benchmark/
 ├── sim/                        # MuJoCo scene: hand + task objects
 │   ├── hand/                   #   Orca hand MJCF models
 │   ├── tasks/                  #   17 PoMDAR task fragments
