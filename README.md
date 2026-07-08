@@ -4,12 +4,12 @@ MuJoCo simulation assets for the **Orca hand** and all **18 PoMDAR benchmark tas
 
 ---
 
-## PoMDAR v2 is in progress
+## PoMDAR v1.1 is released! (2026-07-08)
 
-Following user feedback, we are working on a **more stable and reliable version** of the benchmark, planned for release in **August 2026**.  
+Following user feedback, we have released a **more stable and reliable version** of the benchmark CAD objects, together with a visual guide for assembly. You can go see it (and print them for yourself) in the cad/ directory.
 For suggestions, complaints, or feedback, please open a [GitHub Issue](../../issues).
 
-![PoMDAR benchmark overview](benchmark_overview-1.png)
+![PoMDAR benchmark overview](benchmark_overview.png)
 
 ---
 
@@ -31,13 +31,8 @@ pomdar_benchmark/
 │   ├── orcahand_v1b.urdf       #   Hand kinematics (for retargeter FK)
 │   ├── orcahand_v1*.xml        #   Orca hand model variants
 │   └── *.yaml                  #   Hand scheme + retargeter configs
-├── cad/                        # STEP files for all physical task fixtures
-│   ├── General/                #   Shared mounting hardware and connectors
-│   ├── Vertical/               #   Fixtures for V1–V3 tasks
-│   ├── Horizontal/             #   Fixtures for H1–H5 tasks
-│   ├── Continuous/             #   Fixtures for C1–C4 tasks
-│   └── README.md               #   CAD assembly instructions
-├── benchmark_overview-1.png    # Benchmark overview figure
+├── cad/                        # STEP and 3MF files for the physical objects
+├── benchmark_overview.png    # Benchmark overview figure
 ├── requirements.txt            # minimal: mujoco only (viewer)
 ├── requirements-teleop.txt     # full: adds mediapipe, torch, etc.
 ├── environment.yml             # conda minimal

@@ -8,6 +8,14 @@ See [BOM.md](BOM.md) for the full Bill of Materials with part numbers and quanti
 > Assembly and 3D printing documentation will be released soon.
 
 ---
+Please refer to this figure fromt the paper for the overview on how to assemble each task:
+![](../benchmark_overview.png)
+
+And here are in-depth visual guides for some specific items that are harder to assemble:
+![](figures/attaching_handle.png)
+![](figures/continuous_configuration.png)
+![](figures/horizontal_configuration_items.png)
+![](figures/horizontal_configuration_structure.png)
 
 ## Assembly & Mounting
 
