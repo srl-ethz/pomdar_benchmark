@@ -32,7 +32,7 @@ pomdar_benchmark/
 │   ├── orcahand_v1*.xml        #   Orca hand model variants
 │   └── *.yaml                  #   Hand scheme + retargeter configs
 ├── cad/                        # STEP and 3MF files for the physical objects
-├── benchmark_overview.png    # Benchmark overview figure
+├── benchmark_overview.png      # Benchmark overview figure
 ├── requirements.txt            # minimal: mujoco only (viewer)
 ├── requirements-teleop.txt     # full: adds mediapipe, torch, etc.
 ├── environment.yml             # conda minimal
