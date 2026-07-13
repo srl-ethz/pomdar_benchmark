@@ -15,10 +15,10 @@ Please refer to this figure from the paper for an overview on how to assemble ea
 ![](../benchmark_overview.png)
 
 And here are in-depth visual guides for some specific items that are harder to assemble:
-![](figures/attaching_handle.png)
-![](figures/continuous_configuration.png)
-![](figures/horizontal_configuration_items.png)
-![](figures/horizontal_configuration_structure.png)
+![](figures/attaching_handle.JPG)
+![](figures/continuous_configuration.JPG)
+![](figures/horizontal_configuration_items.JPG)
+![](figures/horizontal_configuration_structure.JPG)
 
 ---
 
