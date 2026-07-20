@@ -1,5 +1,4 @@
-# Copied from faive_system/src/retargeter/retargeter.py
-# Changes:
+# Changes from original code:
 #   - "from .utils import retarget_utils" → "import retarget_utils"
 #   - strip_meshes() added so pytorch_kinematics doesn't need mesh files on disk
 
