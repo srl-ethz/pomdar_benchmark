@@ -129,7 +129,9 @@ python teleop/rokoko_teleop.py --help
 ```
 
 It controls both the fingers and the hand's 6-DoF pose.
-The first received wrist pose is automatically calibrated to the hand's initial scene position, so hold the gloved hand in a comfortable starting pose when launching the demo.
+The first received wrist pose is automatically calibrated to the hand's initial
+scene position and direction. When launching the demo, hold the hand facing
+forward: palm toward `-Z` (floor) and fingers toward `+Y` (front, for this environment).
 
 ---
 

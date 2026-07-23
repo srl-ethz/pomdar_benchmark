@@ -67,6 +67,12 @@ class RokokoTracker:
         port: int = 14043,
         hand: str = "right",
         initial_position: tuple[float, float, float] = (0.34, 0.1, 0.3),
+        initial_quaternion: tuple[float, float, float, float] = (
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+        ),
         position_alpha: float = 0.95,
         quaternion_alpha: float = 0.85,
     ) -> None:
@@ -83,6 +89,15 @@ class RokokoTracker:
         self.initial_position = np.asarray(initial_position, dtype=np.float64)
         if self.initial_position.shape != (3,):
             raise ValueError("initial_position must contain three values")
+        self.initial_quaternion = np.asarray(
+            initial_quaternion, dtype=np.float64
+        )
+        if self.initial_quaternion.shape != (4,):
+            raise ValueError("initial_quaternion must contain four values")
+        quaternion_norm = np.linalg.norm(self.initial_quaternion)
+        if quaternion_norm == 0.0:
+            raise ValueError("initial_quaternion must be nonzero")
+        self.initial_quaternion /= quaternion_norm
         self.position_alpha = position_alpha
         self.quaternion_alpha = quaternion_alpha
         self._bone_names = _mano_bone_names(hand)
@@ -233,11 +248,17 @@ class RokokoTracker:
             self._filtered_position - self._zero_position + self.initial_position
         )
 
-        rotation_now = Rotation.from_quat(
-            np.roll(self._filtered_quaternion, -1)
-        )
+        rotation_now = Rotation.from_quat(np.roll(self._filtered_quaternion, -1))
         rotation_zero = Rotation.from_quat(np.roll(self._zero_quaternion, -1))
-        rotation_out = rotation_now * rotation_zero.inv()
+        rotation_initial = Rotation.from_quat(
+            np.roll(self.initial_quaternion, -1)
+        )
+
+        # Rokoko can choose a different world frame between sessions. Align that
+        # frame from the first sample, which is assumed to be the front-facing
+        # pose (palm -Z, fingers +Y). In this scene that pose corresponds to an
+        # identity hand_mocap quaternion.
+        rotation_out = rotation_initial * rotation_zero.inv() * rotation_now
         mocap_quaternion = np.roll(rotation_out.as_quat(), 1)
         return mocap_position, mocap_quaternion
 
