@@ -9,7 +9,7 @@ MuJoCo simulation assets for the **Orca hand** and all **18 PoMDAR benchmark tas
 Following user feedback, we have released a **more stable and reliable version** of the benchmark CAD objects, together with a visual guide for assembly. You can go see it (and print them for yourself) in the cad/ directory.
 For suggestions, complaints, or feedback, please open a [GitHub Issue](../../issues).
 
-![PoMDAR benchmark overview](benchmark_overview.png)
+![PoMDAR benchmark overview](figures/benchmark_overview.png)
 
 ---
 
@@ -25,11 +25,6 @@ pomdar_benchmark/
 │   └── README.md               #   Sim-only instructions
 ├── teleop/                     #   Webcam and Rokoko teleop examples
 ├── cad/                        # STEP and 3MF files for the physical objects
-├── benchmark_overview.png      # Benchmark overview figure
-├── requirements.txt            # minimal: mujoco only (viewer)
-├── requirements-teleop.txt     # full: adds mediapipe, torch, etc.
-├── environment.yml             # conda minimal
-├── environment-teleop.yml      # conda full (teleop)
 └── README.md                   # This file
 ```
 
