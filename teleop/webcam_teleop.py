@@ -27,6 +27,7 @@ import tempfile
 import threading
 import time
 from pathlib import Path
+from typing import Callable, Protocol
 
 import numpy as np
 import torch
@@ -40,7 +41,6 @@ _TELEOP = Path(__file__).resolve().parent
 if str(_TELEOP) not in sys.path:
     sys.path.insert(0, str(_TELEOP))
 
-from tracker    import MediaPipeTracker   # noqa: E402
 from retargeter import Retargeter         # noqa: E402
 import mujoco                             # noqa: E402
 import mujoco.viewer                      # noqa: E402
@@ -131,13 +131,30 @@ def add_forearm(kp: np.ndarray) -> np.ndarray:
 
 # ── Retargeter worker thread ──────────────────────────────────────────────────
 
+class KeypointTracker(Protocol):
+    """Tracker interface used by the retargeting worker."""
+
+    def start(self) -> None: ...
+
+    def stop(self) -> None: ...
+
+    def get_keypoint_positions(self) -> np.ndarray | None: ...
+
+
 class RetargeterWorker:
     """Runs retarget() in a dedicated thread; main thread reads ctrl non-blocking."""
 
-    def __init__(self, retargeter: Retargeter, tracker: MediaPipeTracker, opt_steps: int = 2):
+    def __init__(
+        self,
+        retargeter: Retargeter,
+        tracker: KeypointTracker,
+        opt_steps: int = 2,
+        keypoint_transform: Callable[[np.ndarray], np.ndarray] | None = None,
+    ):
         self._ret       = retargeter
         self._tracker   = tracker
         self._opt_steps = opt_steps
+        self._keypoint_transform = keypoint_transform or (lambda kp: kp)
         self._ctrl: np.ndarray | None = None
         self._lock  = threading.Lock()
         self.running = False
@@ -164,7 +181,7 @@ class RetargeterWorker:
                 time.sleep(0.005)
                 continue
             try:
-                kp_mano = add_forearm(normalize_scale(kp))
+                kp_mano = self._keypoint_transform(kp)
                 angles_deg, _ = self._ret.retarget(kp_mano, opt_steps=self._opt_steps)
                 with self._lock:
                     self._ctrl = angles_deg / 180.0 * np.pi
@@ -221,25 +238,15 @@ def _build_scene(sim_dir: Path, task: str | None) -> str:
     return _SCENE_TEMPLATE.format(task_include=task_line)
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
-
-def main() -> None:
-    available = sorted(p.stem for p in (_SIM_DIR / "tasks").glob("*.xml"))
-
-    ap = argparse.ArgumentParser(description="Webcam teleoperation of the Orca hand in MuJoCo.")
-    ap.add_argument("--task",         default=None,
-                    help=f"PoMDAR task to load. Available: {', '.join(available)}")
-    ap.add_argument("--list-tasks",   action="store_true", help="Print available tasks and exit.")
-    ap.add_argument("--camera-index", type=int, default=0,  help="Webcam device index (default 0).")
-    ap.add_argument("--opt-steps",    type=int, default=2,  help="Retargeter gradient steps (default 2).")
-    ap.add_argument("--sim-hz",       type=float, default=500.0, help="Physics rate in Hz (default 500).")
-    ap.add_argument("--no-preview",   action="store_true",  help="Disable the webcam preview window.")
-    args = ap.parse_args()
-
-    if args.list_tasks:
-        print("\n".join(available))
-        return
-
+def run_teleop(
+    *,
+    tracker_factory: Callable[[], KeypointTracker],
+    task: str | None = None,
+    opt_steps: int = 2,
+    sim_hz: float = 500.0,
+    keypoint_transform: Callable[[np.ndarray], np.ndarray] | None = None,
+) -> None:
+    """Run the shared retargeter, MuJoCo simulation, and viewer."""
     # ── Retargeter ────────────────────────────────────────────────────────────
     print("Loading retargeter …", flush=True)
     retargeter = Retargeter(
@@ -252,7 +259,7 @@ def main() -> None:
     print("Retargeter ready.", flush=True)
 
     # ── MuJoCo scene ─────────────────────────────────────────────────────────
-    scene_xml = _build_scene(_SIM_DIR, args.task)
+    scene_xml = _build_scene(_SIM_DIR, task)
     tmp = tempfile.NamedTemporaryFile(
         mode="w", suffix="_teleop.xml", delete=False, dir=_SIM_DIR)
     tmp.write(scene_xml)
@@ -268,16 +275,6 @@ def main() -> None:
     data = mujoco.MjData(model)
     print(f"Scene loaded: nq={model.nq} nv={model.nv} nu={model.nu}", flush=True)
 
-    # ── Start tracker + retargeter threads ───────────────────────────────────
-    tracker = MediaPipeTracker(
-        camera_index=args.camera_index,
-        show_preview=not args.no_preview,
-    )
-    worker = RetargeterWorker(retargeter, tracker, opt_steps=args.opt_steps)
-    tracker.start()
-    worker.start()
-    print("Tracker and retargeter started.", flush=True)
-
     # ── Sim thread + main viewer loop ─────────────────────────────────────────
     # Pattern from run_teleop_mujoco.py:
     #   sim thread:  with data_lock: mj_step(model, data)
@@ -289,12 +286,30 @@ def main() -> None:
 
     sim_thread = threading.Thread(
         target=sim_loop,
-        args=(model, data, data_lock, stop_evt, args.sim_hz),
+        args=(model, data, data_lock, stop_evt, sim_hz),
         daemon=True,
     )
 
-    print("Close the MuJoCo window to quit.", flush=True)
+    tracker = None
+    worker = None
+    tracker_started = False
+    worker_started = False
     try:
+        # ── Start tracker + retargeter threads ───────────────────────────────
+        tracker = tracker_factory()
+        worker = RetargeterWorker(
+            retargeter,
+            tracker,
+            opt_steps=opt_steps,
+            keypoint_transform=keypoint_transform,
+        )
+        tracker.start()
+        tracker_started = True
+        worker.start()
+        worker_started = True
+        print("Tracker and retargeter started.", flush=True)
+
+        print("Close the MuJoCo window to quit.", flush=True)
         with mujoco.viewer.launch_passive(model, data) as viewer:
             sim_thread.start()   # start AFTER launch_passive initialises data
             n_sync = 0
@@ -314,13 +329,49 @@ def main() -> None:
                     n_sync, t0 = 0, now
     finally:
         stop_evt.set()
-        sim_thread.join(timeout=2.0)
-        worker.stop()
-        tracker.stop()
+        if sim_thread.is_alive():
+            sim_thread.join(timeout=2.0)
+        if worker_started:
+            worker.stop()
+        if tracker_started:
+            tracker.stop()
         try:
             os.unlink(scene_path)
         except OSError:
             pass
+
+
+# ── Main ──────────────────────────────────────────────────────────────────────
+
+def main() -> None:
+    from tracker import MediaPipeTracker
+
+    available = sorted(p.stem for p in (_SIM_DIR / "tasks").glob("*.xml"))
+
+    ap = argparse.ArgumentParser(description="Webcam teleoperation of the Orca hand in MuJoCo.")
+    ap.add_argument("--task",         default=None,
+                    help=f"PoMDAR task to load. Available: {', '.join(available)}")
+    ap.add_argument("--list-tasks",   action="store_true", help="Print available tasks and exit.")
+    ap.add_argument("--camera-index", type=int, default=0,  help="Webcam device index (default 0).")
+    ap.add_argument("--opt-steps",    type=int, default=2,  help="Retargeter gradient steps (default 2).")
+    ap.add_argument("--sim-hz",       type=float, default=500.0, help="Physics rate in Hz (default 500).")
+    ap.add_argument("--no-preview",   action="store_true",  help="Disable the webcam preview window.")
+    args = ap.parse_args()
+
+    if args.list_tasks:
+        print("\n".join(available))
+        return
+
+    run_teleop(
+        tracker_factory=lambda: MediaPipeTracker(
+            camera_index=args.camera_index,
+            show_preview=not args.no_preview,
+        ),
+        task=args.task,
+        opt_steps=args.opt_steps,
+        sim_hz=args.sim_hz,
+        keypoint_transform=lambda kp: add_forearm(normalize_scale(kp)),
+    )
 
 
 if __name__ == "__main__":

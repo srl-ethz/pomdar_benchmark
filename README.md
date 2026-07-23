@@ -1,6 +1,6 @@
 # PoMDAR Benchmark
 
-MuJoCo simulation assets for the **Orca hand** and all **18 PoMDAR benchmark tasks**, plus a webcam teleoperation example.
+MuJoCo simulation assets for the **Orca hand** and all **18 PoMDAR benchmark tasks**, plus webcam and Rokoko glove teleoperation examples.
 
 ---
 
@@ -23,14 +23,7 @@ pomdar_benchmark/
 │   ├── assets/                 #   Meshes, textures
 │   ├── launch_mujoco_orca.py   #   Passive viewer launcher (no teleop)
 │   └── README.md               #   Sim-only instructions
-├── teleop/                     # Webcam teleop example (self-contained)
-│   ├── webcam_teleop.py        #   Main entry point
-│   ├── tracker.py              #   MediaPipe hand tracker
-│   ├── retargeter.py           #   Gradient-descent retargeter
-│   ├── retarget_utils.py       #   Retargeting utilities
-│   ├── orcahand_v1b.urdf       #   Hand kinematics (for retargeter FK)
-│   ├── orcahand_v1*.xml        #   Orca hand model variants
-│   └── *.yaml                  #   Hand scheme + retargeter configs
+├── teleop/                     #   Webcam and Rokoko teleop examples
 ├── cad/                        # STEP and 3MF files for the physical objects
 ├── benchmark_overview.png      # Benchmark overview figure
 ├── requirements.txt            # minimal: mujoco only (viewer)
@@ -45,7 +38,8 @@ pomdar_benchmark/
 ## Requirements
 
 - Python **3.10 or 3.11**
-- A webcam (for teleoperation only)
+- A webcam (for webcam teleoperation only)
+- Rokoko gloves and Rokoko Studio (for Rokoko teleoperation only)
 - A display with OpenGL support (required by the MuJoCo viewer)
 
 ---
@@ -64,7 +58,7 @@ conda env create -f environment.yml && conda activate pomdar
 pip install -r requirements.txt
 ```
 
-### Full — webcam teleoperation
+### Full — webcam or Rokoko teleoperation
 
 Adds MediaPipe, OpenCV, PyTorch, and the retargeter dependencies.
 
@@ -98,8 +92,8 @@ python launch_mujoco_orca.py --list-tasks     # print all task names
 > **Disclaimer:** The webcam teleoperation script is provided as a **proof-of-concept example only**. A standard RGB webcam cannot recover reliable 3D wrist pose or absolute hand depth, and MediaPipe landmark accuracy degrades significantly under occlusion, lighting variation, and fast motion. As a result, finger tracking is approximate and wrist positioning is not available.
 >
 > For accurate, low-latency teleoperation we recommend:
+> - **Motion capture gloves** — e.g. Rokoko, Manus, or similar.
 > - **Apple Vision Pro** — [VisionProTeleop](https://github.com/Improbable-AI/VisionProTeleop) provides full 6-DoF wrist pose and high-quality hand landmarks via ARKit.
-> - **Motion capture gloves** — e.g. Rokoko, StretchSense, or similar.
 
 
 - Run from anywhere — all paths are resolved relative to the script:
@@ -115,6 +109,33 @@ python teleop/webcam_teleop.py --task H2_Chopsticks
 # All options
 python teleop/webcam_teleop.py --help
 ```
+---
+
+## Rokoko glove teleoperation
+
+![](figures/rokoko_streaming_config.png)
+
+In Rokoko Studio, enable Custom Streaming, select JSON format, and stream to the
+IP address of the computer running the simulation on UDP port `14043`. Then run:
+
+```bash
+# Bare hand (right glove, UDP port 14043)
+python teleop/rokoko_teleop.py
+
+# With a task object loaded
+python teleop/rokoko_teleop.py --task V1_Wheel
+
+# Use the left glove or a different local UDP port
+python teleop/rokoko_teleop.py --hand left
+python teleop/rokoko_teleop.py --port 14044
+
+# All options
+python teleop/rokoko_teleop.py --help
+```
+
+The Rokoko receiver is standalone and does not require ROS. As in the webcam
+demo, the hand base remains fixed and teleoperation controls the fingers.
+
 ---
 
 ## PoMDAR Tasks
