@@ -245,6 +245,9 @@ def run_teleop(
     opt_steps: int = 2,
     sim_hz: float = 500.0,
     keypoint_transform: Callable[[np.ndarray], np.ndarray] | None = None,
+    mocap_pose_getter: Callable[
+        [KeypointTracker], tuple[np.ndarray, np.ndarray] | None
+    ] | None = None,
 ) -> None:
     """Run the shared retargeter, MuJoCo simulation, and viewer."""
     # ── Retargeter ────────────────────────────────────────────────────────────
@@ -274,6 +277,16 @@ def run_teleop(
 
     data = mujoco.MjData(model)
     print(f"Scene loaded: nq={model.nq} nv={model.nv} nu={model.nu}", flush=True)
+
+    mocap_id = None
+    if mocap_pose_getter is not None:
+        body_id = mujoco.mj_name2id(
+            model, mujoco.mjtObj.mjOBJ_BODY, "hand_mocap"
+        )
+        if body_id < 0 or model.body_mocapid[body_id] < 0:
+            os.unlink(scene_path)
+            raise RuntimeError("Scene does not contain a mocap body named 'hand_mocap'")
+        mocap_id = model.body_mocapid[body_id]
 
     # ── Sim thread + main viewer loop ─────────────────────────────────────────
     # Pattern from run_teleop_mujoco.py:
@@ -316,16 +329,31 @@ def run_teleop(
             t0 = time.monotonic()
             while viewer.is_running():
                 ctrl = worker.get_ctrl()
+                mocap_pose = (
+                    mocap_pose_getter(tracker)
+                    if mocap_pose_getter is not None
+                    else None
+                )
                 with data_lock:
                     if ctrl is not None:
                         data.ctrl[:] = ctrl
+                    if mocap_pose is not None:
+                        position, quaternion = mocap_pose
+                        data.mocap_pos[mocap_id][:] = position
+                        data.mocap_quat[mocap_id][:] = quaternion
                     viewer.sync()
                 time.sleep(0.016)   # ~60 Hz render
                 n_sync += 1
                 now = time.monotonic()
                 if now - t0 >= 2.0:
+                    mocap_status = (
+                        f"  mocap={'live' if mocap_pose is not None else 'waiting'}"
+                        if mocap_pose_getter is not None
+                        else ""
+                    )
                     print(f"[viewer] {n_sync/(now-t0):.0f} Hz  "
-                          f"ctrl={'live' if ctrl is not None else 'waiting'}", flush=True)
+                          f"ctrl={'live' if ctrl is not None else 'waiting'}"
+                          f"{mocap_status}", flush=True)
                     n_sync, t0 = 0, now
     finally:
         stop_evt.set()

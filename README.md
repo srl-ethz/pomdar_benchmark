@@ -128,8 +128,8 @@ python teleop/rokoko_teleop.py --port 14044
 python teleop/rokoko_teleop.py --help
 ```
 
-The Rokoko receiver is standalone and does not require ROS. As in the webcam
-demo, the hand base remains fixed and teleoperation controls the fingers.
+It controls both the fingers and the hand's 6-DoF pose.
+The first received wrist pose is automatically calibrated to the hand's initial scene position, so hold the gloved hand in a comfortable starting pose when launching the demo.
 
 ---
 

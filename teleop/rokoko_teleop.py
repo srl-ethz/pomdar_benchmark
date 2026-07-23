@@ -79,6 +79,7 @@ def main() -> None:
         task=args.task,
         opt_steps=args.opt_steps,
         sim_hz=args.sim_hz,
+        mocap_pose_getter=RokokoTracker.get_mocap_pose,
     )
 
 
