@@ -193,12 +193,12 @@ class RokokoTracker:
         ingress_quaternion = ingress_rotation.as_quat()
 
         # Reference MuJoCo controller:
-        #   position (x, y, z) -> (x, -z, y)
-        #   quaternion xyzw    -> (w, x, -z, y)
+        #   position (x, y, z) -> (-z, -x, y)
+        #   quaternion xyzw    -> (w, -z, -x, y)
         position = np.array(
             [
-                ingress_position[0],
                 -ingress_position[2],
+                -ingress_position[0],
                 ingress_position[1],
             ],
             dtype=np.float64,
@@ -206,8 +206,8 @@ class RokokoTracker:
         quaternion = np.array(
             [
                 ingress_quaternion[3],
-                ingress_quaternion[0],
                 -ingress_quaternion[2],
+                -ingress_quaternion[0],
                 ingress_quaternion[1],
             ],
             dtype=np.float64,
@@ -254,11 +254,11 @@ class RokokoTracker:
             np.roll(self.initial_quaternion, -1)
         )
 
-        # Rokoko can choose a different world frame between sessions. Align that
-        # frame from the first sample, which is assumed to be the front-facing
-        # pose (palm -Z, fingers +Y). In this scene that pose corresponds to an
-        # identity hand_mocap quaternion.
-        rotation_out = rotation_initial * rotation_zero.inv() * rotation_now
+        # Remove the zero-pose orientation in the MuJoCo world frame. Using
+        # rotation_zero.inv() * rotation_now instead would express the delta in
+        # the initial hand frame, whose +X/+Y/+Z map to MuJoCo -Y/+Z/-X.
+        rotation_delta = rotation_now * rotation_zero.inv()
+        rotation_out = rotation_delta * rotation_initial
         mocap_quaternion = np.roll(rotation_out.as_quat(), 1)
         return mocap_position, mocap_quaternion
 
