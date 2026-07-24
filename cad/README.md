@@ -12,7 +12,7 @@ STEP and 3MF files for all physical task fixtures used in the PoMDAR benchmark. 
 
 ---
 Please refer to this figure from the paper for an overview on how to assemble each task:
-![](../benchmark_overview.png)
+![](../figures/benchmark_overview.png)
 
 And here are in-depth visual guides for some specific items that are harder to assemble:
 ![](figures/attaching_handle.JPG)

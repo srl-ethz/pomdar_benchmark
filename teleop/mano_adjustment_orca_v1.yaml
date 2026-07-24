@@ -1,10 +1,10 @@
 all:
   translation : [0.0, 0.0, -0.01]
-  rotation : [0.2, 0.0, -0.1]
+  rotation : [0., 0.0, -0.]
   scale : [1.0, 0.7, 1.0]
 thumb:
   translation : [0.0, 0.0, 0.0]
-  rotation : [0.2, 0.4, 0.0]
+  rotation : [0., 0., 0.0]
   scale : [1.0, 1.0, 1.0]
 index:
   translation : [0.0, 0.0, 0.0]

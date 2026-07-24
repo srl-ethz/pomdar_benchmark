@@ -27,6 +27,7 @@ import tempfile
 import threading
 import time
 from pathlib import Path
+from typing import Callable, Protocol
 
 import numpy as np
 import torch
@@ -40,7 +41,6 @@ _TELEOP = Path(__file__).resolve().parent
 if str(_TELEOP) not in sys.path:
     sys.path.insert(0, str(_TELEOP))
 
-from tracker    import MediaPipeTracker   # noqa: E402
 from retargeter import Retargeter         # noqa: E402
 import mujoco                             # noqa: E402
 import mujoco.viewer                      # noqa: E402
@@ -131,13 +131,30 @@ def add_forearm(kp: np.ndarray) -> np.ndarray:
 
 # ── Retargeter worker thread ──────────────────────────────────────────────────
 
+class KeypointTracker(Protocol):
+    """Tracker interface used by the retargeting worker."""
+
+    def start(self) -> None: ...
+
+    def stop(self) -> None: ...
+
+    def get_keypoint_positions(self) -> np.ndarray | None: ...
+
+
 class RetargeterWorker:
     """Runs retarget() in a dedicated thread; main thread reads ctrl non-blocking."""
 
-    def __init__(self, retargeter: Retargeter, tracker: MediaPipeTracker, opt_steps: int = 2):
+    def __init__(
+        self,
+        retargeter: Retargeter,
+        tracker: KeypointTracker,
+        opt_steps: int = 2,
+        keypoint_transform: Callable[[np.ndarray], np.ndarray] | None = None,
+    ):
         self._ret       = retargeter
         self._tracker   = tracker
         self._opt_steps = opt_steps
+        self._keypoint_transform = keypoint_transform or (lambda kp: kp)
         self._ctrl: np.ndarray | None = None
         self._lock  = threading.Lock()
         self.running = False
@@ -164,7 +181,7 @@ class RetargeterWorker:
                 time.sleep(0.005)
                 continue
             try:
-                kp_mano = add_forearm(normalize_scale(kp))
+                kp_mano = self._keypoint_transform(kp)
                 angles_deg, _ = self._ret.retarget(kp_mano, opt_steps=self._opt_steps)
                 with self._lock:
                     self._ctrl = angles_deg / 180.0 * np.pi
@@ -221,9 +238,142 @@ def _build_scene(sim_dir: Path, task: str | None) -> str:
     return _SCENE_TEMPLATE.format(task_include=task_line)
 
 
+def run_teleop(
+    *,
+    tracker_factory: Callable[[], KeypointTracker],
+    task: str | None = None,
+    opt_steps: int = 2,
+    sim_hz: float = 500.0,
+    keypoint_transform: Callable[[np.ndarray], np.ndarray] | None = None,
+    mocap_pose_getter: Callable[
+        [KeypointTracker], tuple[np.ndarray, np.ndarray] | None
+    ] | None = None,
+) -> None:
+    """Run the shared retargeter, MuJoCo simulation, and viewer."""
+    # ── Retargeter ────────────────────────────────────────────────────────────
+    print("Loading retargeter …", flush=True)
+    retargeter = Retargeter(
+        mjcf_filepath    = str(_MJCF_FK),
+        hand_scheme      = str(_SCHEME),
+        mano_adjustments = str(_MANO_ADJ),
+        retargeter_cfg   = _RETARGETER_CFG,
+        device           = "cpu",
+    )
+    print("Retargeter ready.", flush=True)
+
+    # ── MuJoCo scene ─────────────────────────────────────────────────────────
+    scene_xml = _build_scene(_SIM_DIR, task)
+    tmp = tempfile.NamedTemporaryFile(
+        mode="w", suffix="_teleop.xml", delete=False, dir=_SIM_DIR)
+    tmp.write(scene_xml)
+    tmp.close()
+    scene_path = tmp.name
+
+    try:
+        model = mujoco.MjModel.from_xml_path(scene_path)
+    except Exception as e:
+        os.unlink(scene_path)
+        raise SystemExit(f"MuJoCo load error: {e}") from e
+
+    data = mujoco.MjData(model)
+    print(f"Scene loaded: nq={model.nq} nv={model.nv} nu={model.nu}", flush=True)
+
+    mocap_id = None
+    if mocap_pose_getter is not None:
+        body_id = mujoco.mj_name2id(
+            model, mujoco.mjtObj.mjOBJ_BODY, "hand_mocap"
+        )
+        if body_id < 0 or model.body_mocapid[body_id] < 0:
+            os.unlink(scene_path)
+            raise RuntimeError("Scene does not contain a mocap body named 'hand_mocap'")
+        mocap_id = model.body_mocapid[body_id]
+
+    # ── Sim thread + main viewer loop ─────────────────────────────────────────
+    # Pattern from run_teleop_mujoco.py:
+    #   sim thread:  with data_lock: mj_step(model, data)
+    #   main thread: with data_lock: data.ctrl[:] = ctrl
+    #                viewer.sync()   ← same thread that owns data writes,
+    #                                  so NO concurrent C-level access on data.
+    data_lock = threading.Lock()
+    stop_evt  = threading.Event()
+
+    sim_thread = threading.Thread(
+        target=sim_loop,
+        args=(model, data, data_lock, stop_evt, sim_hz),
+        daemon=True,
+    )
+
+    tracker = None
+    worker = None
+    tracker_started = False
+    worker_started = False
+    try:
+        # ── Start tracker + retargeter threads ───────────────────────────────
+        tracker = tracker_factory()
+        worker = RetargeterWorker(
+            retargeter,
+            tracker,
+            opt_steps=opt_steps,
+            keypoint_transform=keypoint_transform,
+        )
+        tracker.start()
+        tracker_started = True
+        worker.start()
+        worker_started = True
+        print("Tracker and retargeter started.", flush=True)
+
+        print("Close the MuJoCo window to quit.", flush=True)
+        with mujoco.viewer.launch_passive(model, data) as viewer:
+            sim_thread.start()   # start AFTER launch_passive initialises data
+            n_sync = 0
+            t0 = time.monotonic()
+            while viewer.is_running():
+                ctrl = worker.get_ctrl()
+                mocap_pose = (
+                    mocap_pose_getter(tracker)
+                    if mocap_pose_getter is not None
+                    else None
+                )
+                with data_lock:
+                    if ctrl is not None:
+                        data.ctrl[:] = ctrl
+                    if mocap_pose is not None:
+                        position, quaternion = mocap_pose
+                        data.mocap_pos[mocap_id][:] = position
+                        data.mocap_quat[mocap_id][:] = quaternion
+                    viewer.sync()
+                time.sleep(0.016)   # ~60 Hz render
+                n_sync += 1
+                now = time.monotonic()
+                if now - t0 >= 2.0:
+                    mocap_status = (
+                        f"  mocap={'live' if mocap_pose is not None else 'waiting'}"
+                        if mocap_pose_getter is not None
+                        else ""
+                    )
+                    print(f"[viewer] {n_sync/(now-t0):.0f} Hz  "
+                          f"ctrl={'live' if ctrl is not None else 'waiting'}"
+                          f"{mocap_status}", flush=True)
+                    n_sync, t0 = 0, now
+    finally:
+        stop_evt.set()
+        if sim_thread.is_alive():
+            sim_thread.join(timeout=2.0)
+        if worker_started:
+            worker.stop()
+        if tracker_started:
+            tracker.stop()
+        try:
+            os.unlink(scene_path)
+        except OSError:
+            pass
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
+    from tracker import MediaPipeTracker
+
     available = sorted(p.stem for p in (_SIM_DIR / "tasks").glob("*.xml"))
 
     ap = argparse.ArgumentParser(description="Webcam teleoperation of the Orca hand in MuJoCo.")
@@ -240,87 +390,16 @@ def main() -> None:
         print("\n".join(available))
         return
 
-    # ── Retargeter ────────────────────────────────────────────────────────────
-    print("Loading retargeter …", flush=True)
-    retargeter = Retargeter(
-        mjcf_filepath    = str(_MJCF_FK),
-        hand_scheme      = str(_SCHEME),
-        mano_adjustments = str(_MANO_ADJ),
-        retargeter_cfg   = _RETARGETER_CFG,
-        device           = "cpu",
+    run_teleop(
+        tracker_factory=lambda: MediaPipeTracker(
+            camera_index=args.camera_index,
+            show_preview=not args.no_preview,
+        ),
+        task=args.task,
+        opt_steps=args.opt_steps,
+        sim_hz=args.sim_hz,
+        keypoint_transform=lambda kp: add_forearm(normalize_scale(kp)),
     )
-    print("Retargeter ready.", flush=True)
-
-    # ── MuJoCo scene ─────────────────────────────────────────────────────────
-    scene_xml = _build_scene(_SIM_DIR, args.task)
-    tmp = tempfile.NamedTemporaryFile(
-        mode="w", suffix="_teleop.xml", delete=False, dir=_SIM_DIR)
-    tmp.write(scene_xml)
-    tmp.close()
-    scene_path = tmp.name
-
-    try:
-        model = mujoco.MjModel.from_xml_path(scene_path)
-    except Exception as e:
-        os.unlink(scene_path)
-        raise SystemExit(f"MuJoCo load error: {e}") from e
-
-    data = mujoco.MjData(model)
-    print(f"Scene loaded: nq={model.nq} nv={model.nv} nu={model.nu}", flush=True)
-
-    # ── Start tracker + retargeter threads ───────────────────────────────────
-    tracker = MediaPipeTracker(
-        camera_index=args.camera_index,
-        show_preview=not args.no_preview,
-    )
-    worker = RetargeterWorker(retargeter, tracker, opt_steps=args.opt_steps)
-    tracker.start()
-    worker.start()
-    print("Tracker and retargeter started.", flush=True)
-
-    # ── Sim thread + main viewer loop ─────────────────────────────────────────
-    # Pattern from run_teleop_mujoco.py:
-    #   sim thread:  with data_lock: mj_step(model, data)
-    #   main thread: with data_lock: data.ctrl[:] = ctrl
-    #                viewer.sync()   ← same thread that owns data writes,
-    #                                  so NO concurrent C-level access on data.
-    data_lock = threading.Lock()
-    stop_evt  = threading.Event()
-
-    sim_thread = threading.Thread(
-        target=sim_loop,
-        args=(model, data, data_lock, stop_evt, args.sim_hz),
-        daemon=True,
-    )
-
-    print("Close the MuJoCo window to quit.", flush=True)
-    try:
-        with mujoco.viewer.launch_passive(model, data) as viewer:
-            sim_thread.start()   # start AFTER launch_passive initialises data
-            n_sync = 0
-            t0 = time.monotonic()
-            while viewer.is_running():
-                ctrl = worker.get_ctrl()
-                with data_lock:
-                    if ctrl is not None:
-                        data.ctrl[:] = ctrl
-                    viewer.sync()
-                time.sleep(0.016)   # ~60 Hz render
-                n_sync += 1
-                now = time.monotonic()
-                if now - t0 >= 2.0:
-                    print(f"[viewer] {n_sync/(now-t0):.0f} Hz  "
-                          f"ctrl={'live' if ctrl is not None else 'waiting'}", flush=True)
-                    n_sync, t0 = 0, now
-    finally:
-        stop_evt.set()
-        sim_thread.join(timeout=2.0)
-        worker.stop()
-        tracker.stop()
-        try:
-            os.unlink(scene_path)
-        except OSError:
-            pass
 
 
 if __name__ == "__main__":
